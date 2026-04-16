@@ -2687,18 +2687,32 @@ p {
 .ticker-track {
   display: flex;
   white-space: nowrap;
+  -webkit-animation: tickerLeft 22s linear infinite;
   animation: tickerLeft 22s linear infinite;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
 }
 
 .ticker-track--rtl {
+  -webkit-animation: tickerRight 22s linear infinite;
   animation: tickerRight 22s linear infinite;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
 }
 
+@-webkit-keyframes tickerLeft {
+  from { -webkit-transform: translateX(0);    transform: translateX(0); }
+  to   { -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+}
 @keyframes tickerLeft {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
 
+@-webkit-keyframes tickerRight {
+  from { -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+  to   { -webkit-transform: translateX(0);    transform: translateX(0); }
+}
 @keyframes tickerRight {
   from { transform: translateX(-50%); }
   to   { transform: translateX(0); }
