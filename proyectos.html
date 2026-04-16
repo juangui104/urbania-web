@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portafolio de Urbania — Casa Calera, Apartamento Cantero y más. Proyectos de construcción y remodelación premium en Medellín." />
+  <meta name="keywords" content="portafolio construcción Medellín, proyectos remodelación Colombia, obras terminadas Medellín, casa nueva Medellín, interiorismo Medellín" />
+  <meta name="author" content="Urbania" />
+  <link rel="canonical" href="https://urbania.com.co/proyectos.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Proyectos — Urbania Construcción y Remodelación · Medellín" />
+  <meta property="og:description" content="Portafolio de obras: construcción nueva, remodelación y acabados en Medellín. Cada proyecto, una declaración de carácter." />
+  <meta property="og:image" content="https://urbania.com.co/assets/og-proyectos.jpg" />
+  <meta property="og:url" content="https://urbania.com.co/proyectos.html" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Proyectos — Urbania · Medellín" />
+  <meta name="twitter:description" content="Portafolio de construcción y remodelación premium en Medellín, Colombia." />
+
+  <title>Proyectos — Urbania Construcción y Remodelación · Medellín</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════════════════ -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="Urbania — Inicio"><img src="assets/logo/URBANIA COLOR 1PNG.png" alt="Urbania" class="logo-img" /></a>
+      <nav class="navbar__nav" role="navigation" aria-label="Navegación principal">
+        <a href="index.html"     class="navbar__link">Inicio</a>
+        <a href="nosotros.html"  class="navbar__link">Nosotros</a>
+        <a href="proyectos.html" class="navbar__link">Proyectos</a>
+        <a href="blog.html"      class="navbar__link">Blog</a>
+        <a href="contacto.html"  class="navbar__link">Contacto</a>
+        <a href="contacto.html" class="btn btn-dorado navbar__cta">Cotizar</a>
+      </nav>
+      <button class="navbar__hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="navbar__mobile-menu" role="dialog" aria-label="Menú móvil">
+    <a href="index.html"     class="navbar__link">Inicio</a>
+    <a href="nosotros.html"  class="navbar__link">Nosotros</a>
+    <a href="proyectos.html" class="navbar__link">Proyectos</a>
+    <a href="blog.html"      class="navbar__link">Blog</a>
+    <a href="contacto.html"  class="navbar__link">Contacto</a>
+    <a href="contacto.html" class="btn btn-dorado" style="margin-top:1rem;">Cotizar ahora</a>
+  </div>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════════
+         A) HERO
+    ══════════════════════════════════════════════════ -->
+    <section class="hero-interior" aria-label="Proyectos">
+      <div
+        class="hero-interior__bg"
+        style="background-image: url('assets/images/proyectos/cantero-1.webp');"
+      ></div>
+      <div class="hero-interior__overlay"></div>
+      <div class="hero-interior__content">
+        <div class="container">
+          <span class="hero-interior__label">Portafolio</span>
+          <h1 class="hero-interior__title animate-on-scroll">Proyectos</h1>
+          <p class="animate-on-scroll delay-1" style="font-size:var(--text-xl); color:rgba(255,255,255,0.72); max-width:42ch; margin-top:var(--space-4); font-family:var(--font-display); font-weight:400; line-height:1.45; letter-spacing:-0.01em;">
+            Cada proyecto es la prueba de que es posible.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════
+         B) FILTROS + C) GRID DE PROYECTOS
+    ══════════════════════════════════════════════════ -->
+    <section class="py-section-lg" style="background: var(--color-negro);" aria-labelledby="proyectos-grid-titulo">
+      <div class="container">
+
+        <!-- Encabezado de sección -->
+        <div class="section-header animate-on-scroll">
+          <span class="gold-line"></span>
+          <span class="section-label">Nuestro trabajo</span>
+          <h2 id="proyectos-grid-titulo" class="section-header__title" style="font-size: clamp(var(--text-2xl), 3vw, var(--text-4xl));">
+            Resultados que hablan por sí solos
+          </h2>
+        </div>
+
+        <!-- B) FILTROS -->
+        <div class="project-filters animate-on-scroll" role="group" aria-label="Filtrar proyectos por categoría">
+          <button
+            class="filter-btn active"
+            data-filter="todos"
+            aria-pressed="true"
+          >Todos</button>
+          <button
+            class="filter-btn"
+            data-filter="obra-nueva"
+            aria-pressed="false"
+          >Obra nueva</button>
+          <button
+            class="filter-btn"
+            data-filter="remodelacion"
+            aria-pressed="false"
+          >Remodelación</button>
+          <button
+            class="filter-btn"
+            data-filter="acabados-interiorismo"
+            aria-pressed="false"
+          >Acabados e interiorismo</button>
+        </div>
+
+        <!-- C) LISTA DE PROYECTOS -->
+        <div id="projects-list" class="flex flex-col gap-8">
+
+          <!-- Proyecto 1: Casa Calera -->
+          <article
+            class="project-card-lg animate-on-scroll"
+            data-category="obra-nueva"
+          >
+            <a href="casa-calera.html" class="project-card-lg__img-wrap" aria-label="Ver proyecto Casa Calera">
+              <img
+                src="assets/images/proyectos/casa-calera-1.webp"
+                alt="Casa Calera — Construcción de vivienda unifamiliar, Medellín"
+                class="project-card-lg__img"
+                width="900" height="700"
+                loading="lazy"
+              />
+            </a>
+            <div class="project-card-lg__body">
+              <span class="project-card-lg__category">Obra nueva</span>
+              <h3 class="project-card-lg__title">Casa Calera</h3>
+              <div class="project-card-lg__meta">
+                <span class="project-card-lg__meta-item">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Medellín, Colombia
+                </span>
+                <span class="project-card-lg__meta-item">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                  2024
+                </span>
+                <span class="project-card-lg__meta-item">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  Entregado
+                </span>
+              </div>
+              <p class="project-card-lg__desc">
+                Construcción completa de vivienda unifamiliar en el sector de La Calera,
+                Medellín. Desde excavación y estructura hasta acabados finales y entrega
+                de llaves. El cliente tuvo visibilidad total del proceso sin tener que
+                gestionar proveedores.
+              </p>
+              <a href="casa-calera.html" class="btn btn-outline-dorado" style="align-self:flex-start; margin-top:var(--space-2);">
+                Ver proyecto
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Proyecto 2: Apartamento Cantero -->
+          <article
+            class="project-card-lg project-card-lg--reverse animate-on-scroll delay-1"
+            data-category="acabados-interiorismo"
+          >
+            <a href="cantero.html" class="project-card-lg__img-wrap" aria-label="Ver proyecto Apartamento Cantero">
+              <img
+                src="assets/images/proyectos/cantero-1.webp"
+                alt="Apartamento Cantero — Acabados e interiorismo en El Poblado, Medellín"
+                class="project-card-lg__img"
+                width="900" height="700"
+                loading="lazy"
+              />
+            </a>
+            <div class="project-card-lg__body">
+              <span class="project-card-lg__category">Acabados e interiorismo</span>
+              <h3 class="project-card-lg__title">Apartamento Cantero</h3>
+              <div class="project-card-lg__meta">
+                <span class="project-card-lg__meta-item">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Medellín, Colombia
+                </span>
+                <span class="project-card-lg__meta-item">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                  2024
+                </span>
+                <span class="project-card-lg__meta-item">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  Entregado
+                </span>
+              </div>
+              <p class="project-card-lg__desc">
+                Intervención completa de acabados en apartamento en El Poblado.
+                Pisos en porcelanato formato grande, cocina abierta con isla, baños
+                renovados y carpintería a medida en toda la unidad. Resultado:
+                un espacio con identidad propia y valor de reventa elevado.
+              </p>
+              <a href="cantero.html" class="btn btn-outline-dorado" style="align-self:flex-start; margin-top:var(--space-2);">
+                Ver proyecto
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+        </div><!-- /projects-list -->
+
+        <!-- Mensaje vacío (oculto por defecto) -->
+        <div id="no-results" style="display:none; text-align:center; padding: var(--space-20) 0;">
+          <p style="color:rgba(255,255,255,0.35); font-size:var(--text-sm); letter-spacing:0.06em;">
+            No hay proyectos en esta categoría aún. <a href="contacto.html" style="color:var(--color-dorado);">¿Tienes uno en mente?</a>
+          </p>
+        </div>
+
+      </div><!-- /container -->
+    </section>
+
+    <!-- ══════════════════════════════════════════════════
+         CTA
+    ══════════════════════════════════════════════════ -->
+    <section class="cta-strip" aria-label="Cotiza tu proyecto">
+      <div class="container">
+        <h2 class="cta-strip__headline animate-on-scroll">
+          ¿Tu proyecto podría ser el próximo?
+        </h2>
+        <p class="cta-strip__sub animate-on-scroll delay-1">
+          Contáctanos y cuéntanos qué tenés en mente.
+          Te respondemos en menos de 24 horas con una evaluación inicial.
+        </p>
+        <a href="contacto.html" class="btn btn-dorado animate-on-scroll delay-2">
+          Cotizar mi proyecto
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <span class="footer__gold-accent" aria-hidden="true"></span>
+      <div class="footer__top">
+
+        <div class="footer__brand">
+          <a href="index.html" class="footer__brand-logo"><img src="assets/logo/URBANIA COLOR 1PNG.png" alt="Urbania" class="logo-img" /></a>
+          <p class="footer__brand-desc">
+            Construcción y remodelación premium en Medellín. Transformamos espacios
+            con diseño, tecnología y calidad de acabado superior.
+          </p>
+          <div class="footer__socials" aria-label="Redes sociales">
+            <a href="#" class="footer__social-link" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="#" class="footer__social-link" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="footer__social-link" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://wa.me/573001234567" class="footer__social-link" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+          </div>
+        </div>
+
+        <nav aria-label="Empresa">
+          <h3 class="footer__col-title">Empresa</h3>
+          <ul class="footer__links">
+            <li><a href="nosotros.html"  class="footer__link">Nosotros</a></li>
+            <li><a href="proyectos.html" class="footer__link">Proyectos</a></li>
+            <li><a href="blog.html"      class="footer__link">Blog</a></li>
+            <li><a href="contacto.html"  class="footer__link">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Servicios">
+          <h3 class="footer__col-title">Servicios</h3>
+          <ul class="footer__links">
+            <li><a href="nosotros.html#servicios" class="footer__link">Obra nueva</a></li>
+            <li><a href="nosotros.html#servicios" class="footer__link">Remodelación</a></li>
+            <li><a href="nosotros.html#servicios" class="footer__link">Acabados e interiorismo</a></li>
+            <li><a href="nosotros.html#servicios" class="footer__link">Diseños y estudios técnicos</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h3 class="footer__col-title">Contacto</h3>
+          <address style="font-style:normal;">
+            <div class="footer__contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>El Poblado, Medellín<br>Antioquia, Colombia</span>
+            </div>
+            <div class="footer__contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.92a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="tel:+573001234567" class="footer__link">+57 300 123 4567</a>
+            </div>
+            <div class="footer__contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:hola@urbania.com.co" class="footer__link">hola@urbania.com.co</a>
+            </div>
+          </address>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; <span id="footer-year">2025</span> Urbania Construcciones SAS. Todos los derechos reservados.</p>
+        <nav class="footer__legal" aria-label="Legal">
+          <a href="#">Política de privacidad</a>
+          <a href="#">Términos de servicio</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- ── FILTROS DE PROYECTOS ──────────────────────────── -->
+  <script>
+  (function initProjectFilters() {
+    const filterBtns  = document.querySelectorAll('.filter-btn');
+    const projects    = document.querySelectorAll('#projects-list article[data-category]');
+    const noResults   = document.getElementById('no-results');
+
+    if (!filterBtns.length || !projects.length) return;
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function () {
+        const filter = this.dataset.filter;
+
+        // Estado activo en botones
+        filterBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        this.classList.add('active');
+        this.setAttribute('aria-pressed', 'true');
+
+        // Mostrar / ocultar proyectos
+        let visible = 0;
+        projects.forEach(card => {
+          const match = filter === 'todos' || card.dataset.category === filter;
+          if (match) {
+            card.style.display = '';
+            // Re-disparar animación
+            card.classList.remove('visible');
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => card.classList.add('visible'));
+            });
+            visible++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Mensaje sin resultados
+        noResults.style.display = visible === 0 ? 'block' : 'none';
+      });
+    });
+  })();
+  </script>
+
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/573000000000" class="whatsapp-fab" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
+    <span class="whatsapp-fab__tooltip">Escríbenos por WhatsApp</span>
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="#25D366"/></svg>
+  </a>
+
+</body>
+</html>
