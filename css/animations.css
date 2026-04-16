@@ -226,4 +226,50 @@
     transform: none;
     transition: none;
   }
+
+  .hero-line-inner--animated,
+  .hero-reveal-fade--animated {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero-line-mask {
+    overflow: visible;
+  }
+}
+
+/* ── 10. HERO REVEAL CINEMATOGRÁFICO ─────────────────────── */
+
+/* Contenedor-máscara: el overflow:hidden oculta el span interior
+   mientras está en translateY(110%), creando el efecto de "salida" */
+.hero-line-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em; /* evita clipping de descendentes (g, y, p…) */
+}
+
+.hero-line-inner {
+  display: block;
+  will-change: transform, opacity;
+}
+
+/* fill-mode: both → aplica el estado "from" durante el delay
+   (elemento invisible mientras espera su turno) */
+.hero-line-inner--animated {
+  animation: heroLineReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes heroLineReveal {
+  from { transform: translateY(110%); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
+
+.hero-reveal-fade--animated {
+  animation: heroFadeReveal 0.70s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes heroFadeReveal {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
 }

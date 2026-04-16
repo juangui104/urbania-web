@@ -390,6 +390,90 @@
   });
 })();
 
+/* ── HERO REVEAL CINEMATOGRÁFICO ────────────────────────── */
+(function initHeroReveal() {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Split el.innerHTML by <br> into mask → inner span pairs */
+  function buildLines(el) {
+    var parts = el.innerHTML
+      .split(/<br\s*\/?>/i)
+      .map(function (s) { return s.trim(); })
+      .filter(Boolean);
+    el.innerHTML = '';
+    return parts.map(function (html) {
+      var mask  = document.createElement('span');
+      mask.className = 'hero-line-mask';
+      var inner = document.createElement('span');
+      inner.className = 'hero-line-inner';
+      inner.innerHTML = html;
+      mask.appendChild(inner);
+      el.appendChild(mask);
+      return inner;
+    });
+  }
+
+  /* Mask-reveal con stagger de líneas. delays = array de segundos */
+  function revealLines(el, delays) {
+    if (!el) return;
+    el.classList.remove('animate-on-scroll', 'delay-1', 'delay-2', 'delay-3');
+    el.style.opacity    = '1';
+    el.style.transform  = 'none';
+    el.style.transition = 'none';
+    if (reduced) return;
+    buildLines(el).forEach(function (inner, i) {
+      var d = i < delays.length
+        ? delays[i]
+        : delays[delays.length - 1] + (i - delays.length + 1) * 0.18;
+      inner.style.animationDelay = d + 's';
+      inner.classList.add('hero-line-inner--animated');
+    });
+  }
+
+  /* Fade-up para labels, subtítulos y botones */
+  function revealFade(el, delay) {
+    if (!el) return;
+    el.classList.remove('animate-on-scroll', 'delay-1', 'delay-2', 'delay-3');
+    el.style.transition = 'none';
+    if (reduced) {
+      el.style.opacity   = '1';
+      el.style.transform = 'none';
+      return;
+    }
+    el.style.animationDelay = delay + 's';
+    el.classList.add('hero-reveal-fade--animated');
+  }
+
+  /* ── index.html ──────────────────────────────────────── */
+  var headline = document.querySelector('.hero__headline');
+  if (headline) {
+    headline.style.animation = 'none';  /* cancela heroFadeUp del CSS */
+    var sub     = document.querySelector('.hero__sub');
+    var actions = document.querySelector('.hero__actions');
+    if (sub) sub.style.animation = 'none';
+
+    revealLines(headline, [0.10, 0.30]);
+    revealFade(sub,     0.90);
+    revealFade(actions, 1.10);
+    return;
+  }
+
+  /* ── Páginas interiores ──────────────────────────────── */
+  var ic = document.querySelector('.hero-interior__content');
+  if (!ic) return;
+
+  var label = ic.querySelector('.hero-interior__label');
+  var title = ic.querySelector('.hero-interior__title');
+  var subEl = ic.querySelector('p');
+  /* blog-articulo: no hay <p>, sí un div de meta con display:flex */
+  var meta  = !subEl ? ic.querySelector('[style*="display:flex"]') : null;
+
+  revealFade(label, 0.05);
+  revealLines(title, [0.20, 0.40]);
+  revealFade(subEl, 0.65);
+  revealFade(meta,  0.65);
+})();
+
 /* ── LIGHTBOX GALERÍA ────────────────────────────────────── */
 (function initLightbox() {
   var galleryImages = Array.prototype.slice.call(
