@@ -79,151 +79,186 @@
       <div class="container">
         <div class="contact-layout">
 
-          <!-- ── B) FORMULARIO ───────────────────────── -->
-          <div class="contact-form-wrap animate-fade-left">
-            <h2 id="contacto-titulo">Contanos sobre tu proyecto</h2>
-            <p>Sin tecnicismos, sin compromiso. Solo cuéntanos qué querés y te damos una respuesta real.</p>
+          <!-- ── B) WIZARD DE COTIZACIÓN 2 PASOS ────── -->
+          <div class="contact-form-wrap animate-fade-left" id="quote-wizard">
 
-            <!--
-              Netlify Forms: atributo netlify + name="contacto"
-              Netlify detecta este formulario automáticamente al hacer deploy.
-              Los envíos llegan al dashboard de Netlify en Forms > contacto.
-            -->
-            <form
-              class="contact-form"
-              id="contact-form"
-              name="contacto"
-              method="POST"
-              netlify
-              netlify-honeypot="bot-field"
-              novalidate
-            >
-              <!-- Campo honeypot (anti-spam Netlify) -->
-              <p style="display:none;">
-                <label>No llenar este campo: <input name="bot-field" /></label>
-              </p>
-
-              <!-- Fila: Nombre + Tipo de proyecto -->
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label" for="nombre">
-                    Nombre completo <span aria-hidden="true">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="nombre"
-                    name="nombre"
-                    class="form-input"
-                    placeholder="Tu nombre"
-                    required
-                    autocomplete="name"
-                  />
-                  <span class="form-error" id="error-nombre" role="alert">Por favor ingresá tu nombre.</span>
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="tipo-proyecto">
-                    Tipo de proyecto <span aria-hidden="true">*</span>
-                  </label>
-                  <select
-                    id="tipo-proyecto"
-                    name="tipo_proyecto"
-                    class="form-select"
-                    required
-                  >
-                    <option value="" disabled selected>Seleccioná una opción</option>
-                    <option value="obra-nueva">Obra nueva</option>
-                    <option value="remodelacion">Remodelación</option>
-                    <option value="acabados-interiorismo">Acabados e interiorismo</option>
-                    <option value="disenos-estudios">Diseños y estudios técnicos</option>
-                    <option value="no-se">No sé todavía</option>
-                  </select>
-                  <span class="form-error" id="error-tipo" role="alert">Por favor seleccioná el tipo de proyecto.</span>
-                </div>
+            <!-- Barra de progreso -->
+            <div class="quote-progress" aria-label="Progreso del formulario">
+              <div class="quote-progress__meta">
+                <span class="quote-progress__step" id="step-label">Paso 1 de 2</span>
+                <span class="quote-progress__hint" id="step-hint">Seleccioná el tipo de proyecto</span>
               </div>
-
-              <!-- Fila: Teléfono + Email -->
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label" for="telefono">
-                    Teléfono <span aria-hidden="true">*</span>
-                  </label>
-                  <div class="input-prefix">
-                    <span class="input-prefix__code" aria-hidden="true">
-                      🇨🇴 +57
-                    </span>
-                    <input
-                      type="tel"
-                      id="telefono"
-                      name="telefono"
-                      class="form-input"
-                      placeholder="300 000 0000"
-                      required
-                      autocomplete="tel"
-                      pattern="[0-9\s\-]{7,15}"
-                    />
-                  </div>
-                  <span class="form-error" id="error-telefono" role="alert">Ingresá un número de teléfono válido.</span>
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="email">
-                    Email <span aria-hidden="true">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    class="form-input"
-                    placeholder="tu@email.com"
-                    required
-                    autocomplete="email"
-                  />
-                  <span class="form-error" id="error-email" role="alert">Ingresá un email válido.</span>
-                </div>
+              <div class="quote-progress__bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                <div class="quote-progress__fill" id="progress-fill"></div>
               </div>
-
-              <!-- Descripción del proyecto -->
-              <div class="form-group">
-                <label class="form-label" for="descripcion">
-                  Descripción breve del proyecto <span aria-hidden="true">*</span>
-                </label>
-                <textarea
-                  id="descripcion"
-                  name="descripcion"
-                  class="form-textarea"
-                  placeholder="Contanos qué querés hacer — por ejemplo: remodelar cocina y baño de apartamento 80m², o construir casa de dos pisos en lote propio en Envigado..."
-                  required
-                  rows="5"
-                ></textarea>
-                <span class="form-error" id="error-descripcion" role="alert">Contanos brevemente tu proyecto.</span>
-              </div>
-
-              <!-- Submit -->
-              <button type="submit" class="btn btn-dorado btn-submit" id="btn-submit">
-                Enviar mensaje
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-
-            </form>
-
-            <!-- Mensaje de éxito (oculto hasta enviar) -->
-            <div class="form-success" id="form-success" role="alert" aria-live="polite">
-              <div class="form-success__icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
-                </svg>
-              </div>
-              <p class="form-success__title">¡Mensaje recibido!</p>
-              <p class="form-success__sub">
-                Te respondemos en menos de 24 horas hábiles.<br>
-                Revisá también tu bandeja de spam.
-              </p>
             </div>
 
-          </div>
+            <!-- Slider -->
+            <div class="quote-slider">
+              <div class="quote-slides" id="quote-slides">
+
+                <!-- ── PASO 1: Tipo de proyecto ──────── -->
+                <div class="quote-slide" id="paso1" aria-labelledby="paso1-heading">
+                  <h2 class="quote-slide__heading" id="paso1-heading">¿Qué tipo de proyecto tenés?</h2>
+                  <p class="quote-slide__sub">Elegí una opción para continuar</p>
+
+                  <div class="project-type-grid" role="group" aria-label="Tipo de proyecto">
+
+                    <button class="project-type-card" type="button"
+                      data-value="obra-nueva" data-label="Obra nueva">
+                      <div class="project-type-card__icon" aria-hidden="true">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                          <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                      </div>
+                      <span class="project-type-card__title">Obra nueva</span>
+                      <span class="project-type-card__desc">Construir desde cero en lote propio</span>
+                    </button>
+
+                    <button class="project-type-card" type="button"
+                      data-value="remodelacion" data-label="Remodelación">
+                      <div class="project-type-card__icon" aria-hidden="true">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                        </svg>
+                      </div>
+                      <span class="project-type-card__title">Remodelación</span>
+                      <span class="project-type-card__desc">Transformar un espacio existente</span>
+                    </button>
+
+                    <button class="project-type-card" type="button"
+                      data-value="acabados-interiorismo" data-label="Acabados e interiorismo">
+                      <div class="project-type-card__icon" aria-hidden="true">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L3 14.67V21h6.33l10.06-10.06a5.5 5.5 0 0 0 0-7.78z"/>
+                          <line x1="13.5" y1="6.5" x2="17.5" y2="10.5"/>
+                        </svg>
+                      </div>
+                      <span class="project-type-card__title">Acabados e interiorismo</span>
+                      <span class="project-type-card__desc">Pisos, pintura, cocinas, baños</span>
+                    </button>
+
+                    <button class="project-type-card" type="button"
+                      data-value="disenos-estudios" data-label="Diseños y estudios técnicos">
+                      <div class="project-type-card__icon" aria-hidden="true">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M2 4h3v16H2zM19 4h3v16h-3z"/>
+                          <path d="M5 4h14M5 20h14M5 9h5M5 14h5"/>
+                          <circle cx="16" cy="12" r="2"/>
+                        </svg>
+                      </div>
+                      <span class="project-type-card__title">Diseños y estudios técnicos</span>
+                      <span class="project-type-card__desc">Planos, presupuestos, viabilidad</span>
+                    </button>
+
+                  </div>
+                </div><!-- /paso1 -->
+
+                <!-- ── PASO 2: Datos de contacto ─────── -->
+                <div class="quote-slide" id="paso2" aria-labelledby="paso2-heading">
+
+                  <button class="quote-back" id="quote-back" type="button" aria-label="Volver al paso 1">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                      <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Volver
+                  </button>
+
+                  <div class="quote-selected-badge" id="selected-badge" aria-live="polite"></div>
+
+                  <h2 class="quote-slide__heading" id="paso2-heading">Tus datos de contacto</h2>
+                  <p class="quote-slide__sub">Te respondemos en menos de 24 horas</p>
+
+                  <form
+                    class="contact-form"
+                    id="contact-form"
+                    name="contacto"
+                    method="POST"
+                    netlify
+                    netlify-honeypot="bot-field"
+                    novalidate
+                  >
+                    <!-- Campo honeypot (anti-spam Netlify) -->
+                    <p style="display:none;"><label>No llenar: <input name="bot-field" /></label></p>
+
+                    <!-- Tipo de proyecto (hidden, llenado por el wizard) -->
+                    <input type="hidden" name="tipo_proyecto" id="tipo-proyecto" value="" />
+
+                    <!-- Nombre -->
+                    <div class="form-group">
+                      <label class="form-label" for="nombre">
+                        Nombre completo <span aria-hidden="true">*</span>
+                      </label>
+                      <input type="text" id="nombre" name="nombre" class="form-input"
+                        placeholder="Tu nombre" required autocomplete="name" />
+                      <span class="form-error" id="error-nombre" role="alert">Por favor ingresá tu nombre.</span>
+                    </div>
+
+                    <!-- Fila: Teléfono + Email -->
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label class="form-label" for="telefono">
+                          Teléfono <span aria-hidden="true">*</span>
+                        </label>
+                        <div class="input-prefix">
+                          <span class="input-prefix__code" aria-hidden="true">🇨🇴 +57</span>
+                          <input type="tel" id="telefono" name="telefono" class="form-input"
+                            placeholder="300 000 0000" required autocomplete="tel"
+                            pattern="[0-9\s\-]{7,15}" />
+                        </div>
+                        <span class="form-error" id="error-telefono" role="alert">Ingresá un número válido.</span>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="form-label" for="email">
+                          Email <span aria-hidden="true">*</span>
+                        </label>
+                        <input type="email" id="email" name="email" class="form-input"
+                          placeholder="tu@email.com" required autocomplete="email" />
+                        <span class="form-error" id="error-email" role="alert">Ingresá un email válido.</span>
+                      </div>
+                    </div>
+
+                    <!-- Descripción -->
+                    <div class="form-group">
+                      <label class="form-label" for="descripcion">
+                        Descripción breve del proyecto <span aria-hidden="true">*</span>
+                      </label>
+                      <textarea id="descripcion" name="descripcion" class="form-textarea"
+                        placeholder="Contanos qué querés hacer — tipo: remodelar cocina y baño de 80m², o construir casa de dos pisos en Envigado..."
+                        required rows="4"></textarea>
+                      <span class="form-error" id="error-descripcion" role="alert">Contanos brevemente tu proyecto.</span>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit" class="btn btn-dorado btn-submit" id="btn-submit">
+                      Enviar solicitud
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+
+                  </form>
+
+                  <!-- Éxito -->
+                  <div class="form-success" id="form-success" role="alert" aria-live="polite">
+                    <div class="form-success__icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                      </svg>
+                    </div>
+                    <p class="form-success__title">¡Solicitud recibida!</p>
+                    <p class="form-success__sub">Te respondemos en menos de 24 horas hábiles.<br>Revisá también tu bandeja de spam.</p>
+                  </div>
+
+                </div><!-- /paso2 -->
+
+              </div><!-- /quote-slides -->
+            </div><!-- /quote-slider -->
+
+          </div><!-- /quote-wizard -->
 
           <!-- ── C) INFORMACIÓN DE CONTACTO ──────────── -->
           <div class="contact-info-wrap animate-on-scroll delay-1">
@@ -373,94 +408,115 @@
   <script src="js/main.js" defer></script>
   <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
 
-  <!-- ── VALIDACIÓN DEL FORMULARIO ──────────────────────── -->
+  <!-- ── WIZARD DE COTIZACIÓN ─────────────────────────────── -->
   <script>
-  (function initContactForm() {
-    const form       = document.getElementById('contact-form');
-    const btnSubmit  = document.getElementById('btn-submit');
-    const formSuccess = document.getElementById('form-success');
-    if (!form) return;
+  (function initQuoteWizard() {
+    var slides       = document.getElementById('quote-slides');
+    var progressFill = document.getElementById('progress-fill');
+    var stepLabel    = document.getElementById('step-label');
+    var stepHint     = document.getElementById('step-hint');
+    var selectedBadge = document.getElementById('selected-badge');
+    var hiddenType   = document.getElementById('tipo-proyecto');
+    var form         = document.getElementById('contact-form');
+    var btnSubmit    = document.getElementById('btn-submit');
+    var formSuccess  = document.getElementById('form-success');
+    if (!slides || !form) return;
 
-    /* Helpers */
-    function showError(fieldId, msgId) {
-      document.getElementById(fieldId).classList.add('error');
-      document.getElementById(msgId).classList.add('visible');
+    /* ── Helpers de validación ──────────────────────────── */
+    function showErr(id, errId) {
+      var f = document.getElementById(id), m = document.getElementById(errId);
+      if (f) f.classList.add('error');
+      if (m) m.classList.add('visible');
     }
-    function clearError(fieldId, msgId) {
-      document.getElementById(fieldId).classList.remove('error');
-      document.getElementById(msgId).classList.remove('visible');
+    function clearErr(id, errId) {
+      var f = document.getElementById(id), m = document.getElementById(errId);
+      if (f) f.classList.remove('error');
+      if (m) m.classList.remove('visible');
     }
-    function isValidEmail(v) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-    }
-    function isValidPhone(v) {
-      return /^[\d\s\-]{7,15}$/.test(v.trim());
-    }
+    function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+    function isPhone(v) { return /^[\d\s\-]{7,15}$/.test(v.trim()); }
 
-    /* Limpiar error al editar */
-    [
-      ['nombre',        'error-nombre'],
-      ['tipo-proyecto', 'error-tipo'],
-      ['telefono',      'error-telefono'],
-      ['email',         'error-email'],
-      ['descripcion',   'error-descripcion'],
-    ].forEach(([id, errId]) => {
-      const el = document.getElementById(id);
-      if (el) el.addEventListener('input', () => clearError(id, errId));
-      if (el && el.tagName === 'SELECT') el.addEventListener('change', () => clearError(id, errId));
+    /* Limpiar errores al escribir */
+    [['nombre','error-nombre'],['telefono','error-telefono'],
+     ['email','error-email'],['descripcion','error-descripcion']
+    ].forEach(function(p) {
+      var el = document.getElementById(p[0]);
+      if (el) el.addEventListener('input', function() { clearErr(p[0], p[1]); });
     });
 
-    /* Validación al enviar */
-    form.addEventListener('submit', async function (e) {
+    /* ── Paso 1 → 2 ─────────────────────────────────────── */
+    document.querySelectorAll('.project-type-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        var value = card.dataset.value;
+        var label = card.dataset.label;
+
+        hiddenType.value = value;
+        selectedBadge.innerHTML =
+          '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">' +
+          '<polyline points="2,6 5,9 10,3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>' +
+          '</svg> ' + label;
+
+        slides.classList.add('show-paso2');
+        progressFill.classList.add('paso2');
+        stepLabel.textContent  = 'Paso 2 de 2';
+        stepHint.textContent   = 'Completá tus datos';
+
+        document.getElementById('quote-wizard')
+          .scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    /* ── Paso 2 → 1 ─────────────────────────────────────── */
+    var backBtn = document.getElementById('quote-back');
+    if (backBtn) {
+      backBtn.addEventListener('click', function() {
+        slides.classList.remove('show-paso2');
+        progressFill.classList.remove('paso2');
+        stepLabel.textContent = 'Paso 1 de 2';
+        stepHint.textContent  = 'Seleccioná el tipo de proyecto';
+      });
+    }
+
+    /* ── Envío del formulario ────────────────────────────── */
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      let valid = true;
-      const nombre      = document.getElementById('nombre').value.trim();
-      const tipo        = document.getElementById('tipo-proyecto').value;
-      const telefono    = document.getElementById('telefono').value.trim();
-      const email       = document.getElementById('email').value.trim();
-      const descripcion = document.getElementById('descripcion').value.trim();
+      var nombre      = document.getElementById('nombre').value.trim();
+      var telefono    = document.getElementById('telefono').value.trim();
+      var email       = document.getElementById('email').value.trim();
+      var descripcion = document.getElementById('descripcion').value.trim();
+      var valid = true;
 
-      if (!nombre) { showError('nombre', 'error-nombre'); valid = false; }
-      else clearError('nombre', 'error-nombre');
-
-      if (!tipo) { showError('tipo-proyecto', 'error-tipo'); valid = false; }
-      else clearError('tipo-proyecto', 'error-tipo');
-
-      if (!isValidPhone(telefono)) { showError('telefono', 'error-telefono'); valid = false; }
-      else clearError('telefono', 'error-telefono');
-
-      if (!isValidEmail(email)) { showError('email', 'error-email'); valid = false; }
-      else clearError('email', 'error-email');
-
-      if (descripcion.length < 10) { showError('descripcion', 'error-descripcion'); valid = false; }
-      else clearError('descripcion', 'error-descripcion');
+      if (!nombre)          { showErr('nombre',      'error-nombre');      valid = false; }
+      else                    clearErr('nombre',      'error-nombre');
+      if (!isPhone(telefono)){ showErr('telefono',   'error-telefono');    valid = false; }
+      else                    clearErr('telefono',   'error-telefono');
+      if (!isEmail(email))  { showErr('email',       'error-email');       valid = false; }
+      else                    clearErr('email',       'error-email');
+      if (descripcion.length < 10) { showErr('descripcion','error-descripcion'); valid = false; }
+      else                    clearErr('descripcion','error-descripcion');
 
       if (!valid) return;
 
-      /* Envío a Netlify */
-      btnSubmit.classList.add('sending');
+      btnSubmit.disabled = true;
       btnSubmit.textContent = 'Enviando…';
 
       try {
-        const body = new FormData(form);
-        const res  = await fetch('/', {
+        var body = new FormData(form);
+        var res = await fetch('/', {
           method: 'POST',
           headers: { 'Accept': 'application/x-www-form-urlencoded' },
-          body:    new URLSearchParams(body).toString(),
+          body: new URLSearchParams(body).toString(),
         });
-
         if (res.ok) {
           form.style.display = 'none';
           formSuccess.classList.add('visible');
           formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else {
-          throw new Error('Response not ok');
-        }
+        } else { throw new Error(); }
       } catch (err) {
-        btnSubmit.classList.remove('sending');
-        btnSubmit.innerHTML = 'Enviar mensaje <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-        alert('Hubo un problema al enviar el formulario. Por favor intentá de nuevo o escribinos por WhatsApp.');
+        btnSubmit.disabled = false;
+        btnSubmit.innerHTML = 'Enviar solicitud <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        alert('Hubo un problema al enviar. Por favor intentá de nuevo o escribinos por WhatsApp.');
       }
     });
   })();
