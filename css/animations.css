@@ -123,12 +123,13 @@
 /* ── 4. HERO — Ken Burns sutil ──────────────────────────── */
 
 @keyframes kenBurns {
-  0%   { transform: scale(1.04); }
-  100% { transform: scale(1); }
+  0%, 100% { scale: 1.0; }
+  50%       { scale: 1.08; }
 }
 
-.hero__bg {
-  animation: kenBurns 10s ease-out forwards;
+.hero__bg,
+.hero-interior__bg {
+  animation: kenBurns 8s ease-in-out infinite;
 }
 
 /* ── 5. CONTADORES / CIFRAS (para sección stats futura) ─── */

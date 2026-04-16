@@ -273,24 +273,45 @@
 (function initParallax() {
   if (window.matchMedia('(max-width: 768px)').matches) return;
 
-  const bgs = document.querySelectorAll('.hero__bg, .hero-interior__bg');
-  if (!bgs.length) return;
+  var HERO_FACTOR  = 0.30;
+  var CARD_FACTOR  = 0.05;
 
-  let ticking = false;
+  var heroBgs      = Array.prototype.slice.call(document.querySelectorAll('.hero__bg, .hero-interior__bg'));
+  var projectCards = Array.prototype.slice.call(document.querySelectorAll('.project-card'));
+
+  if (!heroBgs.length && !projectCards.length) return;
+
+  var ticking = false;
 
   function update() {
-    const sy = window.scrollY;
-    bgs.forEach(bg => {
-      const rect = bg.parentElement.getBoundingClientRect();
-      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-      bg.style.transform = 'translateY(' + (sy * 0.35) + 'px)';
+    var vh = window.innerHeight;
+
+    heroBgs.forEach(function(bg) {
+      var hero = bg.parentElement;
+      var rect = hero.getBoundingClientRect();
+      /* skip if hero is fully off-screen */
+      if (rect.bottom < -vh || rect.top > vh * 2) return;
+      /* offset is relative to how far the top of the hero is above viewport */
+      var offset = -rect.top * HERO_FACTOR;
+      bg.style.translate = '0 ' + offset + 'px';
     });
+
+    projectCards.forEach(function(card, i) {
+      var rect = card.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > vh) return;
+      var center = rect.top + rect.height / 2 - vh / 2;
+      var dir = (i % 2 === 0) ? -1 : 1;
+      card.style.translate = '0 ' + (center * CARD_FACTOR * dir) + 'px';
+    });
+
     ticking = false;
   }
 
-  window.addEventListener('scroll', () => {
+  window.addEventListener('scroll', function() {
     if (!ticking) { requestAnimationFrame(update); ticking = true; }
   }, { passive: true });
+
+  update();
 })();
 
 /* ── 11. PAGE TRANSITIONS ────────────────────────────────── */

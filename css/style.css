@@ -506,16 +506,14 @@ p {
 
 .hero__bg {
   position: absolute;
-  inset: 0;
+  top: -15%;
+  bottom: -15%;
+  left: 0;
+  right: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transform: scale(1.04);
-  transition: transform 8s ease-out;
-}
-
-.hero__bg.loaded {
-  transform: scale(1);
+  will-change: transform;
 }
 
 .hero__overlay {
@@ -611,9 +609,13 @@ p {
 
 .hero-interior__bg {
   position: absolute;
-  inset: 0;
+  top: -15%;
+  bottom: -15%;
+  left: 0;
+  right: 0;
   background-size: cover;
   background-position: center;
+  will-change: transform;
 }
 
 .hero-interior__overlay {
