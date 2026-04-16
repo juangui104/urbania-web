@@ -2809,6 +2809,120 @@ p {
   .whatsapp-fab svg { width: 26px; height: 26px; }
 }
 
+/* ── LIGHTBOX ────────────────────────────────────────────── */
+.lb-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lb-overlay--open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lb-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 2px;
+  transition: opacity 0.15s ease;
+}
+
+.lb-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: #e6b54a;
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  opacity: 0.85;
+  transition: opacity 0.15s;
+}
+
+.lb-close:hover { opacity: 1; }
+
+.lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #e6b54a;
+  font-size: 3rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 1rem;
+  opacity: 0.75;
+  transition: opacity 0.15s;
+  user-select: none;
+}
+
+.lb-nav:hover { opacity: 1; }
+.lb-nav--prev { left: 1rem; }
+.lb-nav--next { right: 1rem; }
+
+.lb-counter {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+
+/* Zoom hint en celdas de galería */
+.project-gallery__main,
+.project-gallery__thumb {
+  cursor: zoom-in;
+  position: relative;
+}
+
+.gallery-zoom-icon {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  width: 34px;
+  height: 34px;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.project-gallery__main:hover .gallery-zoom-icon,
+.project-gallery__thumb:hover .gallery-zoom-icon {
+  opacity: 1;
+}
+
+.gallery-zoom-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: #e6b54a;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 /* ── PREFERS-REDUCED-MOTION ──────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .reveal-up,
