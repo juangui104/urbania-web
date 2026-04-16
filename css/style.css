@@ -2663,15 +2663,15 @@ p {
   position: fixed;
   inset: 0;
   background: var(--color-negro);
-  z-index: 9998;
-  opacity: 1;
-  pointer-events: all;
-  transition: opacity 0.45s ease;
-}
-
-#page-transition.is-hidden {
+  z-index: 9999;
   opacity: 0;
   pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+#page-transition.fade-out {
+  opacity: 1;
+  pointer-events: all;
 }
 
 /* ── TICKER ──────────────────────────────────────────────── */

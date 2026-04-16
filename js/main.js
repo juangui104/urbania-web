@@ -295,32 +295,39 @@
 
 /* ── 11. PAGE TRANSITIONS ────────────────────────────────── */
 (function initPageTransitions() {
-  const overlay = document.createElement('div');
+  var overlay = document.createElement('div');
   overlay.id = 'page-transition';
+  /* Empieza en fade-out (negro) y se retira para hacer el fade-in */
+  overlay.classList.add('fade-out');
   document.body.appendChild(overlay);
 
-  // Fade in: revelar la página al llegar
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    overlay.classList.add('is-hidden');
-  }));
+  /* Fade in al cargar: quitar fade-out dos frames después para
+     garantizar que el navegador haya pintado el estado inicial */
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      overlay.classList.remove('fade-out');
+    });
+  });
 
-  document.addEventListener('click', e => {
-    const link = e.target.closest('a[href]');
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href]');
     if (!link) return;
 
-    const href = link.getAttribute('href');
+    var href = link.getAttribute('href');
     if (!href
       || href.startsWith('#')
       || href.startsWith('http')
       || href.startsWith('tel:')
       || href.startsWith('mailto:')
+      || href.startsWith('wa.me')
+      || href.startsWith('/admin')
       || link.target === '_blank'
       || link.hasAttribute('download')
     ) return;
 
     e.preventDefault();
-    overlay.classList.remove('is-hidden');
-    setTimeout(() => { window.location.href = href; }, 450);
+    overlay.classList.add('fade-out');
+    setTimeout(function () { window.location.href = href; }, 400);
   });
 })();
 
