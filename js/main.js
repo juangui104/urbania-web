@@ -353,3 +353,39 @@
 
   items.forEach(el => obs.observe(el));
 })();
+
+/* ── TICKER JS (fallback táctil) ─────────────────────────── */
+(function initTickerFallback() {
+  if (!('ontouchstart' in window)) return;
+
+  function animateTrack(track, rtl) {
+    if (!track) return;
+    track.style.animation = 'none';
+    track.style.webkitAnimation = 'none';
+
+    const totalWidth = track.scrollWidth / 2;
+    let position = rtl ? totalWidth : 0;
+    const speed = 0.8;
+
+    function step() {
+      if (rtl) {
+        position -= speed;
+        if (position <= 0) position = totalWidth;
+      } else {
+        position += speed;
+        if (position >= totalWidth) position = 0;
+      }
+      track.style.transform = 'translateX(-' + position + 'px)';
+      track.style.webkitTransform = 'translateX(-' + position + 'px)';
+      requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  window.addEventListener('load', function () {
+    document.querySelectorAll('.ticker-track').forEach(function (track) {
+      animateTrack(track, track.classList.contains('ticker-track--rtl'));
+    });
+  });
+})();
