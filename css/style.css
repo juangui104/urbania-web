@@ -498,7 +498,9 @@ p {
   min-height: 600px;
   overflow: hidden;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
   padding-top: var(--nav-height);
 }
 
