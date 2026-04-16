@@ -2809,6 +2809,100 @@ p {
   .whatsapp-fab svg { width: 26px; height: 26px; }
 }
 
+/* ── PROCESO / TIMELINE ──────────────────────────────────── */
+.process-section {
+  background: var(--color-negro);
+  padding-block: var(--space-24);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.process-section__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-16);
+}
+
+.process-section__sub {
+  font-size: var(--text-lg);
+  color: rgba(255,255,255,0.55);
+  margin-top: var(--space-1);
+  max-width: 42ch;
+}
+
+.process-connector {
+  display: none;
+}
+
+.process-connector__track {
+  width: 100%;
+  height: 1px;
+  background: var(--color-dorado);
+  opacity: 0.35;
+  margin-bottom: var(--space-10);
+  transform-origin: left;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-8);
+}
+
+.process-step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.process-step__num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-4xl), 4.5vw, var(--text-6xl));
+  font-weight: 700;
+  color: var(--color-dorado);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-3);
+}
+
+.process-step__divider {
+  width: 2rem;
+  height: 1px;
+  background: var(--color-dorado);
+  opacity: 0.5;
+  margin-bottom: var(--space-1);
+}
+
+.process-step__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--color-blanco);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.process-step__desc {
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.58);
+  line-height: 1.72;
+}
+
+@media (min-width: 769px) {
+  .process-connector {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .process-steps {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    padding-left: var(--space-8);
+    border-left: 1px solid rgba(230,181,74,0.22);
+  }
+}
+
 /* ── LIGHTBOX ────────────────────────────────────────────── */
 .lb-overlay {
   position: fixed;
