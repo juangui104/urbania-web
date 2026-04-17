@@ -1,0 +1,43 @@
+title: Urbania
+description: Construcción y remodelación premium en Medellín
+url: "https://urbania-site.netlify.app"
+baseurl: ""
+
+permalink: pretty
+
+collections:
+  proyectos:
+    output: true
+    permalink: /proyectos/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "proyectos"
+    values:
+      layout: "proyecto"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - index.html
+  - nosotros.html
+  - proyectos.html
+  - blog.html
+  - blog-articulo.html
+  - contacto.html
+  - casa-calera.html
+  - cantero.html
+  - _blog
+  - _config

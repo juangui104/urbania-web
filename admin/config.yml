@@ -16,25 +16,27 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Nombre del proyecto", name: "title", widget: "string"}
+      - {label: "Nombre", name: "title", widget: "string"}
       - {label: "Categoría", name: "categoria", widget: "select",
-         options: ["Obra nueva", "Remodelación", "Acabados e interiorismo",
+         options: ["Obra nueva", "Remodelación",
+                   "Acabados e interiorismo",
                    "Diseños y estudios técnicos"]}
-      - {label: "Ubicación", name: "ubicacion", widget: "string",
-         default: "Medellín, Colombia"}
-      - {label: "Año", name: "año", widget: "string"}
+      - {label: "Ubicación", name: "ubicacion",
+         widget: "string", default: "Medellín, Colombia"}
+      - {label: "Año", name: "anio", widget: "string"}
       - {label: "Imagen principal", name: "imagen_principal",
          widget: "image"}
-      - {label: "Descripción", name: "descripcion", widget: "text"}
-      - {label: "Galería de imágenes", name: "galeria",
-         widget: "list", field: {label: "Imagen", name: "imagen",
-         widget: "image"}}
+      - {label: "Descripción corta", name: "descripcion_corta",
+         widget: "text"}
+      - {label: "Descripción completa", name: "body", widget: "markdown"}
+      - {label: "Galería", name: "galeria", widget: "list",
+         field: {label: "Imagen", name: "imagen", widget: "image"}}
       - {label: "Destacado en inicio", name: "destacado",
          widget: "boolean", default: false}
 
-  - name: "blog"
+  - name: "posts"
     label: "Blog"
-    folder: "_blog"
+    folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -43,23 +45,23 @@ collections:
          options: ["Remodelación", "Obra nueva", "Interiorismo",
                    "Consejos", "Presupuesto", "Materiales"]}
       - {label: "Fecha", name: "date", widget: "datetime"}
-      - {label: "Imagen destacada", name: "imagen", widget: "image"}
+      - {label: "Imagen", name: "imagen", widget: "image"}
       - {label: "Extracto", name: "extracto", widget: "text"}
       - {label: "Contenido", name: "body", widget: "markdown"}
-      - {label: "Publicado", name: "publicado", widget: "boolean",
-         default: true}
 
   - name: "configuracion"
-    label: "Configuración del sitio"
+    label: "Configuración"
     files:
-      - label: "Información general"
-        name: "general"
-        file: "_config/general.yml"
+      - label: "Datos de contacto"
+        name: "configuracion"
+        file: "_data/configuracion.yml"
         fields:
-          - {label: "Teléfono WhatsApp", name: "whatsapp",
-             widget: "string"}
-          - {label: "Email de contacto", name: "email",
-             widget: "string"}
+          - {label: "WhatsApp", name: "whatsapp", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
           - {label: "Instagram", name: "instagram", widget: "string"}
           - {label: "Facebook", name: "facebook", widget: "string"}
+          - {label: "LinkedIn", name: "linkedin", widget: "string"}
           - {label: "Dirección", name: "direccion", widget: "string"}
+          - {label: "Horario", name: "horario", widget: "string"}
+          - {label: "Teléfono (display)", name: "telefono", widget: "string"}
+          - {label: "Teléfono (raw)", name: "telefono_raw", widget: "string"}

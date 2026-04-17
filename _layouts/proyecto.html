@@ -1,0 +1,154 @@
+---
+layout: default
+---
+
+<!-- HERO -->
+<section class="hero-interior hero-interior--tall" aria-label="{{ page.title }}">
+  <div class="hero-interior__bg" style="background-image: url('{{ page.imagen_principal }}');"></div>
+  <div class="hero-interior__overlay"></div>
+  <div class="hero-interior__content">
+    <div class="container">
+      <nav aria-label="Ruta de navegación">
+        <ol class="breadcrumb">
+          <li class="breadcrumb__item"><a href="/">Inicio</a></li>
+          <li class="breadcrumb__sep" aria-hidden="true">/</li>
+          <li class="breadcrumb__item"><a href="/proyectos/">Proyectos</a></li>
+          <li class="breadcrumb__sep" aria-hidden="true">/</li>
+          <li class="breadcrumb__item" aria-current="page">{{ page.title }}</li>
+        </ol>
+      </nav>
+      <span class="hero-interior__label animate-on-scroll">{{ page.categoria }}</span>
+      <h1 class="hero-interior__title animate-on-scroll delay-1">{{ page.title }}</h1>
+      <p class="animate-on-scroll delay-2" style="font-size:var(--text-sm); color:rgba(255,255,255,0.55); margin-top:var(--space-3); letter-spacing:0.06em; text-transform:uppercase; font-weight:600;">
+        {{ page.ubicacion }} &nbsp;·&nbsp; {{ page.anio }}
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FICHA TÉCNICA -->
+<section style="background:var(--color-negro); padding-top: var(--space-16); padding-bottom:0;">
+  <div class="container">
+    <div class="ficha-tecnica animate-on-scroll">
+      <div class="ficha-tecnica__item">
+        <span class="ficha-tecnica__label">Tipo de proyecto</span>
+        <span class="ficha-tecnica__value">{{ page.categoria }}</span>
+      </div>
+      <div class="ficha-tecnica__item">
+        <span class="ficha-tecnica__label">Ubicación</span>
+        <span class="ficha-tecnica__value">{{ page.ubicacion }}</span>
+      </div>
+      <div class="ficha-tecnica__item">
+        <span class="ficha-tecnica__label">Año de entrega</span>
+        <span class="ficha-tecnica__value">{{ page.anio }}</span>
+      </div>
+      <div class="ficha-tecnica__item">
+        <span class="ficha-tecnica__label">Estado</span>
+        <span class="ficha-tecnica__value" style="color:var(--color-dorado);">Entregado</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESCRIPCIÓN (contenido del .md) -->
+<section style="background:var(--color-negro); padding-block: var(--space-20);">
+  <div class="container--narrow">
+    <div class="animate-on-scroll">
+      <span class="gold-line"></span>
+      <span class="section-label">El proyecto</span>
+    </div>
+    <div style="margin-top:var(--space-8);">
+      {{ content }}
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+{% if page.galeria %}
+<section style="background:var(--color-negro); padding-bottom: var(--space-8);">
+  <div class="container">
+    <div class="animate-on-scroll" style="margin-bottom:var(--space-8);">
+      <span class="section-label">Registro fotográfico</span>
+    </div>
+
+    <div class="project-gallery animate-fade">
+      {% for imagen in page.galeria limit:3 %}
+        {% if forloop.first %}
+      <div class="project-gallery__main">
+        <img src="{{ imagen }}" alt="{{ page.title }}" width="1200" height="800" loading="lazy" />
+      </div>
+        {% else %}
+      <div class="project-gallery__thumb">
+        <img src="{{ imagen }}" alt="{{ page.title }}" width="800" height="600" loading="lazy" />
+      </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% assign galeria_resto = page.galeria | size %}
+    {% if galeria_resto > 3 %}
+    <div class="project-gallery__row animate-on-scroll">
+      {% for imagen in page.galeria offset:3 %}
+      <div class="project-gallery__thumb">
+        <img src="{{ imagen }}" alt="{{ page.title }}" width="800" height="600" loading="lazy" />
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+<!-- NAVEGACIÓN ENTRE PROYECTOS -->
+<section style="background:var(--color-negro); padding-bottom: var(--space-20);">
+  <div class="container">
+    <div class="project-nav animate-on-scroll">
+
+      <a href="/proyectos/" class="project-nav__link">
+        <span class="project-nav__label">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Volver al portafolio
+        </span>
+        <span class="project-nav__title">Todos los proyectos</span>
+      </a>
+
+      {% if page.proyecto_siguiente_url %}
+      <a href="{{ page.proyecto_siguiente_url }}" class="project-nav__link project-nav__link--next">
+        <span class="project-nav__label">
+          Siguiente proyecto
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="project-nav__title">{{ page.proyecto_siguiente_nombre }}</span>
+      </a>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-strip" aria-label="Cotiza un proyecto similar">
+  <div class="container">
+    <h2 class="cta-strip__headline animate-on-scroll">¿Tenés un proyecto similar en mente?</h2>
+    <p class="cta-strip__sub animate-on-scroll delay-1">
+      Cuéntanos qué necesitás. Te respondemos con una propuesta concreta en menos de 24 horas, sin costo.
+    </p>
+    <a href="/contacto/" class="btn btn-dorado animate-on-scroll delay-2">
+      Cotizar mi proyecto
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<style>
+  .hero-interior--tall { min-height: 520px; }
+  @media (max-width: 768px) {
+    .desc-grid { grid-template-columns: 1fr !important; gap: var(--space-10) !important; }
+  }
+</style>
