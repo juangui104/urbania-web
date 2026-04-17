@@ -350,6 +350,17 @@
     overlay.classList.add('fade-out');
     setTimeout(function () { window.location.href = href; }, 400);
   });
+
+  window.addEventListener('pageshow', function () {
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+    overlay.classList.remove('fade-out');
+  });
+
+  window.addEventListener('popstate', function () {
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+  });
 })();
 
 /* ── 12. CONTADOR ANIMADO DE CIFRAS ─────────────────────── */

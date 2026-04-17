@@ -94,7 +94,7 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 img, video {
@@ -2731,6 +2731,13 @@ p {
     box-sizing: border-box !important;
     width: 100% !important;
     max-width: 100% !important;
+  }
+
+  .hero__bg,
+  [class*="hero-bg"],
+  .hero-bg {
+    animation: none !important;
+    transform: translateY(0) !important;
   }
 }
 
