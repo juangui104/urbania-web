@@ -6,8 +6,8 @@
       <div class="footer__top">
 
         <div class="footer__brand">
-          <a href="/" class="footer__brand-logo">
-            <img src="/assets/logo/URBANIA COLOR 1PNG.png" alt="Urbania" class="logo-img" />
+          <a href="{{ "/" | relative_url }}" class="footer__brand-logo">
+            <img src="{{ "/assets/logo/URBANIA COLOR 1PNG.png" | relative_url }}" alt="Urbania" class="logo-img" />
           </a>
           <p class="footer__brand-desc">
             Construcción y remodelación premium en Medellín. Transformamos espacios
@@ -44,20 +44,20 @@
         <nav aria-label="Links del footer — Empresa">
           <h3 class="footer__col-title">Empresa</h3>
           <ul class="footer__links">
-            <li><a href="/nosotros/"  class="footer__link">Nosotros</a></li>
-            <li><a href="/proyectos/" class="footer__link">Proyectos</a></li>
-            <li><a href="/blog/"      class="footer__link">Blog</a></li>
-            <li><a href="/contacto/"  class="footer__link">Contacto</a></li>
+            <li><a href="{{ "/nosotros/" | relative_url }}"  class="footer__link">Nosotros</a></li>
+            <li><a href="{{ "/proyectos/" | relative_url }}" class="footer__link">Proyectos</a></li>
+            <li><a href="{{ "/blog/" | relative_url }}"      class="footer__link">Blog</a></li>
+            <li><a href="{{ "/contacto/" | relative_url }}"  class="footer__link">Contacto</a></li>
           </ul>
         </nav>
 
         <nav aria-label="Links del footer — Servicios">
           <h3 class="footer__col-title">Servicios</h3>
           <ul class="footer__links">
-            <li><a href="/nosotros/#servicios" class="footer__link">Construcción nueva</a></li>
-            <li><a href="/nosotros/#servicios" class="footer__link">Remodelación</a></li>
-            <li><a href="/nosotros/#servicios" class="footer__link">Acabados e interiores</a></li>
-            <li><a href="/contacto/"           class="footer__link">Cotización gratuita</a></li>
+            <li><a href="{{ "/nosotros/#servicios" | relative_url }}" class="footer__link">Construcción nueva</a></li>
+            <li><a href="{{ "/nosotros/#servicios" | relative_url }}" class="footer__link">Remodelación</a></li>
+            <li><a href="{{ "/nosotros/#servicios" | relative_url }}" class="footer__link">Acabados e interiores</a></li>
+            <li><a href="{{ "/contacto/" | relative_url }}"           class="footer__link">Cotización gratuita</a></li>
           </ul>
         </nav>
 

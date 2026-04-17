@@ -4,15 +4,15 @@ layout: default
 
 <!-- HERO -->
 <section class="hero-interior hero-interior--tall" aria-label="{{ page.title }}">
-  <div class="hero-interior__bg" style="background-image: url('{{ page.imagen_principal }}');"></div>
+  <div class="hero-interior__bg" style="background-image: url('{{ page.imagen_principal | relative_url }}');"></div>
   <div class="hero-interior__overlay"></div>
   <div class="hero-interior__content">
     <div class="container">
       <nav aria-label="Ruta de navegación">
         <ol class="breadcrumb">
-          <li class="breadcrumb__item"><a href="/">Inicio</a></li>
+          <li class="breadcrumb__item"><a href="{{ "/" | relative_url }}">Inicio</a></li>
           <li class="breadcrumb__sep" aria-hidden="true">/</li>
-          <li class="breadcrumb__item"><a href="/proyectos/">Proyectos</a></li>
+          <li class="breadcrumb__item"><a href="{{ "/proyectos/" | relative_url }}">Proyectos</a></li>
           <li class="breadcrumb__sep" aria-hidden="true">/</li>
           <li class="breadcrumb__item" aria-current="page">{{ page.title }}</li>
         </ol>
@@ -75,11 +75,11 @@ layout: default
       {% for imagen in page.galeria limit:3 %}
         {% if forloop.first %}
       <div class="project-gallery__main">
-        <img src="{{ imagen }}" alt="{{ page.title }}" width="1200" height="800" loading="lazy" />
+        <img src="{{ imagen | relative_url }}" alt="{{ page.title }}" width="1200" height="800" loading="lazy" />
       </div>
         {% else %}
       <div class="project-gallery__thumb">
-        <img src="{{ imagen }}" alt="{{ page.title }}" width="800" height="600" loading="lazy" />
+        <img src="{{ imagen | relative_url }}" alt="{{ page.title }}" width="800" height="600" loading="lazy" />
       </div>
         {% endif %}
       {% endfor %}
@@ -90,7 +90,7 @@ layout: default
     <div class="project-gallery__row animate-on-scroll">
       {% for imagen in page.galeria offset:3 %}
       <div class="project-gallery__thumb">
-        <img src="{{ imagen }}" alt="{{ page.title }}" width="800" height="600" loading="lazy" />
+        <img src="{{ imagen | relative_url }}" alt="{{ page.title }}" width="800" height="600" loading="lazy" />
       </div>
       {% endfor %}
     </div>
@@ -104,7 +104,7 @@ layout: default
   <div class="container">
     <div class="project-nav animate-on-scroll">
 
-      <a href="/proyectos/" class="project-nav__link">
+      <a href="{{ "/proyectos/" | relative_url }}" class="project-nav__link">
         <span class="project-nav__label">
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -115,7 +115,7 @@ layout: default
       </a>
 
       {% if page.proyecto_siguiente_url %}
-      <a href="{{ page.proyecto_siguiente_url }}" class="project-nav__link project-nav__link--next">
+      <a href="{{ page.proyecto_siguiente_url | relative_url }}" class="project-nav__link project-nav__link--next">
         <span class="project-nav__label">
           Siguiente proyecto
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -137,7 +137,7 @@ layout: default
     <p class="cta-strip__sub animate-on-scroll delay-1">
       Cuéntanos qué necesitás. Te respondemos con una propuesta concreta en menos de 24 horas, sin costo.
     </p>
-    <a href="/contacto/" class="btn btn-dorado animate-on-scroll delay-2">
+    <a href="{{ "/contacto/" | relative_url }}" class="btn btn-dorado animate-on-scroll delay-2">
       Cotizar mi proyecto
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
         <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
