@@ -220,7 +220,22 @@
   writing-mode: vertical-rl;
 }
 
-/* ── 9. REDUCE MOTION ────────────────────────────────────── */
+/* ── 9. MÓVIL — sin animaciones horizontales ─────────────── */
+
+@media (max-width: 768px) {
+  .animate-fade-left,
+  .animate-fade-right,
+  .animate-on-scroll {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .animate-fade-left.visible,
+  .animate-fade-right.visible {
+    transform: none !important;
+  }
+}
+
+/* ── 10. REDUCE MOTION ───────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
   *,
