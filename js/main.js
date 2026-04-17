@@ -271,7 +271,7 @@
 
 /* ── 10. PARALLAX HERO ───────────────────────────────────── */
 (function initParallax() {
-  if (window.innerWidth < 768) return;
+  if (window.matchMedia('(max-width: 768px)').matches) return;
 
   var HERO_FACTOR  = 0.30;
   var CARD_FACTOR  = 0.05;
@@ -350,18 +350,6 @@
     overlay.classList.add('fade-out');
     setTimeout(function () { window.location.href = href; }, 400);
   });
-
-  /* Limpiar overlay al navegar con botón atrás */
-  window.addEventListener('pageshow', function () {
-    overlay.style.opacity = '0';
-    overlay.style.pointerEvents = 'none';
-    overlay.classList.remove('fade-out');
-  });
-
-  window.addEventListener('popstate', function () {
-    overlay.style.opacity = '0';
-    overlay.style.pointerEvents = 'none';
-  });
 })();
 
 /* ── 12. CONTADOR ANIMADO DE CIFRAS ─────────────────────── */
@@ -392,56 +380,6 @@
   }, { threshold: 0.5 });
 
   items.forEach(el => obs.observe(el));
-})();
-
-/* ── PROCESS SLIDER (móvil) ─────────────────────────────── */
-(function initProcessSlider() {
-  if (window.innerWidth >= 768) return;
-
-  var steps         = Array.prototype.slice.call(document.querySelectorAll('.process-step'));
-  var dotsContainer = document.querySelector('.process-dots');
-  if (!steps.length || !dotsContainer) return;
-
-  var current = 0;
-
-  steps.forEach(function(_, i) {
-    var btn = document.createElement('button');
-    btn.className = 'process-dot' + (i === 0 ? ' active' : '');
-    btn.setAttribute('aria-label', 'Paso ' + (i + 1));
-    btn.addEventListener('click', function() { goTo(i); });
-    dotsContainer.appendChild(btn);
-  });
-
-  function goTo(index) {
-    current = index;
-    steps.forEach(function(step, i) {
-      if (i === index) {
-        step.style.display  = 'flex';
-        step.style.opacity  = '1';
-        step.style.transform = 'none';
-      } else {
-        step.style.display = 'none';
-      }
-    });
-    dotsContainer.querySelectorAll('.process-dot').forEach(function(dot, i) {
-      dot.classList.toggle('active', i === index);
-    });
-  }
-
-  goTo(0);
-
-  var startX = 0;
-  var wrapper = document.querySelector('.process-steps');
-  wrapper.addEventListener('touchstart', function(e) {
-    startX = e.touches[0].clientX;
-  }, { passive: true });
-  wrapper.addEventListener('touchend', function(e) {
-    var diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) {
-      if (diff > 0 && current < steps.length - 1) goTo(current + 1);
-      if (diff < 0 && current > 0) goTo(current - 1);
-    }
-  }, { passive: true });
 })();
 
 /* ── TICKER JS (fallback táctil) ─────────────────────────── */

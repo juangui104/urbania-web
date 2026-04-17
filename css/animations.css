@@ -132,17 +132,6 @@
   animation: kenBurns 8s ease-in-out infinite;
 }
 
-/* En móvil: imagen completamente estática */
-@media (max-width: 768px) {
-  .hero__bg,
-  .hero-interior__bg {
-    animation: none !important;
-    scale: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-}
-
 /* ── 5. CONTADORES / CIFRAS (para sección stats futura) ─── */
 
 @keyframes countUp {
@@ -220,22 +209,7 @@
   writing-mode: vertical-rl;
 }
 
-/* ── 9. MÓVIL — sin animaciones horizontales ─────────────── */
-
-@media (max-width: 768px) {
-  .animate-fade-left,
-  .animate-fade-right,
-  .animate-on-scroll {
-    transform: none !important;
-    opacity: 1 !important;
-  }
-  .animate-fade-left.visible,
-  .animate-fade-right.visible {
-    transform: none !important;
-  }
-}
-
-/* ── 10. REDUCE MOTION ───────────────────────────────────── */
+/* ── 9. REDUCE MOTION ────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -300,17 +274,3 @@
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
-@media (max-width: 768px) {
-  * {
-    transform: none !important;
-    animation: none !important;
-    transition: opacity 0.3s ease !important;
-  }
-
-  .ticker-track {
-    animation: none !important;
-  }
-}
-
-.ticker-track { transform: none !important; }
