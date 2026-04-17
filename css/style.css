@@ -2712,9 +2712,32 @@ p {
   .article-grid { grid-template-columns: 1fr; }
   .article-layout { grid-template-columns: 1fr; }
   .sidebar { position: static; }
-  .contact-layout { grid-template-columns: 1fr; gap: var(--space-12); }
+  .contact-layout { grid-template-columns: 1fr; gap: var(--space-12); overflow-x: hidden; }
   .contact-info-wrap { position: static; }
   .form-row { grid-template-columns: 1fr; }
+  /* Fix formulario cortado en móvil */
+  .contact-form-wrap {
+    padding: 1.5rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  .form-input,
+  .form-textarea,
+  .form-select {
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .input-prefix {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .project-type-card {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+  }
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -3046,14 +3069,52 @@ p {
   .process-connector {
     display: block;
   }
+  /* Pasos pares (2 y 4): número abajo, texto arriba */
+  .process-step:nth-child(even) {
+    flex-direction: column-reverse;
+  }
+  .process-dots {
+    display: none;
+  }
 }
 
+/* ── Mobile slider ── */
 @media (max-width: 768px) {
   .process-steps {
-    grid-template-columns: 1fr;
-    gap: var(--space-10);
-    padding-left: var(--space-8);
-    border-left: 1px solid rgba(230,181,74,0.22);
+    display: block;
+    position: relative;
+    min-height: 200px;
+  }
+  .process-step {
+    display: none;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .process-step--active {
+    display: flex !important;
+  }
+  .process-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: var(--space-8);
+    padding-top: var(--space-4);
+  }
+  .process-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.20);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    flex-shrink: 0;
+  }
+  .process-dot.active {
+    background: var(--color-dorado);
+    transform: scale(1.2);
   }
 }
 
