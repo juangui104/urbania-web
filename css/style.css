@@ -2444,17 +2444,25 @@ p {
 .quote-progress__fill.paso2 { width: 100%; }
 
 /* Slider */
-.quote-slider { overflow: hidden; }
+.quote-slider {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
 
 .quote-slides {
   display: flex;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 200%;
+  transition: transform 0.4s ease;
   will-change: transform;
 }
 
-.quote-slides.show-paso2 { transform: translateX(-100%); }
+.quote-slides.show-paso2 { transform: translateX(-50%); }
 
-.quote-slide { min-width: 100%; }
+.quote-slide {
+  width: 50%;
+  flex-shrink: 0;
+}
 
 .quote-slide__heading {
   font-family: var(--font-display);
@@ -2719,9 +2727,6 @@ p {
   .contact-layout,
   .contact-form-wrap,
   .contact-info-wrap,
-  .quote-slider,
-  .quote-slides,
-  .quote-slide,
   .project-type-grid,
   .contact-cta {
     margin-left: auto !important;
@@ -2731,6 +2736,26 @@ p {
     box-sizing: border-box !important;
     width: 100% !important;
     max-width: 100% !important;
+  }
+
+  .quote-slider {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+  }
+
+  .quote-slides {
+    width: 200% !important;
+    padding: 0 !important;
+  }
+
+  .quote-slide {
+    width: 50% !important;
+    min-width: 50% !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    box-sizing: border-box !important;
   }
 
   .hero__bg,
