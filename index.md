@@ -13,7 +13,7 @@ permalink: /
   <!-- HERO -->
   <section class="hero" aria-label="Portada principal">
     <div class="hero__bg" role="img" aria-label="Proyecto de construcción premium en Medellín"
-      style="background-image: url('/assets/images/proyectos/casa-calera-2.webp');"></div>
+      style="background-image: url('{{ "/assets/images/proyectos/casa-calera-2.webp" | relative_url }}');"></div>
     <div class="hero__overlay" aria-hidden="true"></div>
     <div class="hero__content">
       <div class="container">

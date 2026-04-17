@@ -11,7 +11,7 @@ permalink: /proyectos/
 
   <!-- HERO -->
   <section class="hero-interior" aria-label="Proyectos">
-    <div class="hero-interior__bg" style="background-image: url('/assets/images/proyectos/cantero-1.webp');"></div>
+    <div class="hero-interior__bg" style="background-image: url('{{ "/assets/images/proyectos/cantero-1.webp" | relative_url }}');"></div>
     <div class="hero-interior__overlay"></div>
     <div class="hero-interior__content">
       <div class="container">
