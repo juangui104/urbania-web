@@ -2869,6 +2869,17 @@ p {
   transform: none;
 }
 
+@media (max-width: 768px) {
+  .reveal-right,
+  .reveal-right.revealed {
+    transform: translateX(0) !important;
+  }
+  .reveal-left,
+  .reveal-left.revealed {
+    transform: translateX(0) !important;
+  }
+}
+
 /* ── GOLD LINE ANIMADA ───────────────────────────────────── */
 .gold-line-reveal {
   transform: scaleX(0);
