@@ -19,6 +19,7 @@
   <meta name="twitter:description" content="Cotización gratuita de tu proyecto de construcción o remodelación en Medellín." />
 
   <title>Contacto — Hablemos de tu proyecto · Urbania Medellín</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="icon" type="image/png" href="assets/logo/URBANIA CON FONDO COLOR 1PNG.png">
@@ -396,7 +397,7 @@
           <h2 class="contacto__title" style="margin-bottom:0.5rem;">Tus datos de contacto</h2>
           <p class="contacto__subtitle">Te respondemos en menos de 24 horas</p>
 
-          <form name="contacto" method="POST" data-netlify="true" id="contacto-form" novalidate>
+          <form name="contacto" data-netlify="true" id="contacto-form" novalidate>
             <input type="hidden" name="form-name" value="contacto">
             <input type="hidden" name="tipo-proyecto" id="tipo-hidden">
 
@@ -515,28 +516,37 @@
       document.getElementById('paso2').style.display = 'none';
     }
 
-    /* Envío a Netlify */
+    /* Supabase */
+    const SUPABASE_URL = 'https://xhcjexdaijjiqxdlzmqx.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhoY2pleGRhaWpqaXF4ZGx6bXF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0NTQ1NjgsImV4cCI6MjA5MjAzMDU2OH0.bJZWayiUdp21FoT-FaVHvaJfz3XhBGbScgwOe1cVKrY';
+    const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
     document.getElementById('contacto-form').addEventListener('submit', async function(e) {
       e.preventDefault();
       var btn = document.getElementById('btn-enviar');
       btn.disabled = true;
       btn.textContent = 'Enviando…';
+
+      const datos = {
+        nombre:       this.nombre.value.trim(),
+        telefono:     this.telefono.value.trim(),
+        email:        this.email.value.trim(),
+        tipo_proyecto: document.getElementById('tipo-hidden').value,
+        descripcion:  this.descripcion.value.trim()
+      };
+
       try {
-        var body = new URLSearchParams(new FormData(this)).toString();
-        var res = await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: body
-        });
-        if (res.ok) {
-          this.style.display = 'none';
-          document.getElementById('form-success').classList.add('visible');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else { throw new Error(); }
+        const { error } = await db.from('cotizaciones').insert([datos]);
+        if (error) throw error;
+
+        this.style.display = 'none';
+        document.getElementById('form-success').classList.add('visible');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } catch(err) {
+        console.error('Supabase error:', err);
         btn.disabled = false;
         btn.textContent = 'Enviar solicitud →';
-        alert('Hubo un problema al enviar. Por favor intentá de nuevo o escribinos por WhatsApp.');
+        alert('Hubo un error al enviar. Por favor intentá de nuevo o escribinos por WhatsApp.');
       }
     });
   </script>
