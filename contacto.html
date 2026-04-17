@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -23,6 +23,301 @@
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="icon" type="image/png" href="assets/logo/URBANIA CON FONDO COLOR 1PNG.png">
   <link rel="apple-touch-icon" href="assets/logo/URBANIA CON FONDO COLOR 1PNG.png">
+
+  <style>
+    .contacto {
+      padding: 4rem 0 5rem;
+      background: var(--color-negro);
+    }
+
+    .contacto__inner {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      box-sizing: border-box;
+    }
+
+    .contacto__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      color: var(--color-blanco);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .contacto__subtitle {
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .paso {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* ── Tipos de proyecto ── */
+    .tipos-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .tipo-btn {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 1.25rem 1.5rem;
+      background: #2a1f1a;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      color: white;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .tipo-btn:hover {
+      border-color: var(--color-dorado);
+      background: #321f14;
+    }
+
+    .tipo-btn svg {
+      color: var(--color-dorado);
+      margin-bottom: 0.25rem;
+    }
+
+    .tipo-btn span {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-blanco);
+    }
+
+    .tipo-btn small {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ── Paso 2 ── */
+    .btn-volver {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.875rem;
+      cursor: pointer;
+      padding: 0;
+      margin-bottom: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.15s;
+    }
+
+    .btn-volver:hover { color: var(--color-dorado); }
+
+    .badge-tipo {
+      display: inline-block;
+      background: rgba(230,181,74,0.12);
+      border: 1px solid rgba(230,181,74,0.35);
+      color: var(--color-dorado);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Campos ── */
+    .campo {
+      margin-bottom: 1.25rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .campo label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+    }
+
+    .campo input,
+    .campo textarea,
+    .campo select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.9rem 1rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 4px;
+      color: var(--color-blanco);
+      font-size: 1rem;
+      font-family: var(--font-body);
+      transition: border-color 0.2s;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .campo input:focus,
+    .campo textarea:focus {
+      border-color: var(--color-dorado);
+    }
+
+    .campo input::placeholder,
+    .campo textarea::placeholder { color: rgba(255,255,255,0.28); }
+
+    .campo textarea {
+      resize: vertical;
+      min-height: 110px;
+      line-height: 1.65;
+    }
+
+    .tel-wrap {
+      display: flex;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .prefijo {
+      padding: 0.9rem 1rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-right: none;
+      border-radius: 4px 0 0 4px;
+      white-space: nowrap;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .tel-wrap input {
+      border-radius: 0 4px 4px 0;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .btn-enviar {
+      width: 100%;
+      padding: 1.1rem;
+      background: var(--color-dorado);
+      color: var(--color-negro);
+      border: none;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--font-body);
+      transition: opacity 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .btn-enviar:hover { opacity: 0.88; }
+    .btn-enviar:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ── Mensaje de éxito ── */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .form-success.visible { display: block; }
+
+    .form-success__icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(230,181,74,0.12);
+      border: 1px solid rgba(230,181,74,0.35);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: var(--color-dorado);
+    }
+
+    .form-success h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--color-blanco);
+      margin-bottom: 0.75rem;
+    }
+
+    .form-success p {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.95rem;
+    }
+
+    /* ── Info de contacto ── */
+    .contacto__info {
+      margin-top: 3rem;
+      padding: 1.75rem 2rem;
+      background: #2a1f1a;
+      border-radius: 8px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .info-titulo {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--color-dorado);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .info-item {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.75);
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .info-item:last-child { border-bottom: none; }
+
+    .info-item svg {
+      color: var(--color-dorado);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .info-item a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .info-item a:hover { color: var(--color-dorado); }
+
+    @media (min-width: 768px) {
+      .tipos-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .contacto__inner {
+        max-width: 800px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -55,326 +350,122 @@
 
   <main>
 
-    <!-- ══════════════════════════════════════════════════
-         A) HERO
-    ══════════════════════════════════════════════════ -->
-    <section class="hero-interior" aria-label="Contacto">
-      <div class="hero-interior__bg" style="background-image: url('assets/images/hero/hero-contacto.webp');"></div>
-      <div class="hero-interior__overlay"></div>
-      <div class="hero-interior__content">
-        <div class="container">
-          <span class="hero-interior__label animate-on-scroll">Cotización gratuita</span>
-          <h1 class="hero-interior__title animate-on-scroll delay-1">
-            Hablemos de<br>tu proyecto.
-          </h1>
-          <p class="animate-on-scroll delay-2" style="font-size:var(--text-lg); color:rgba(255,255,255,0.72); max-width:46ch; margin-top:var(--space-4); line-height:1.65;">
-            Contanos qué tenés en mente y te respondemos<br>en menos de 24 horas.
-          </p>
+    <section class="contacto" aria-labelledby="contacto-titulo">
+      <div class="contacto__inner">
+
+        <!-- PASO 1 -->
+        <div id="paso1" class="paso">
+          <h1 id="contacto-titulo" class="contacto__title">Hablemos de<br>tu proyecto.</h1>
+          <p class="contacto__subtitle">Contanos qué tenés en mente y te respondemos en menos de 24 horas.</p>
+
+          <h2 style="font-family:var(--font-display); font-size:1.1rem; color:rgba(255,255,255,0.75); font-weight:400; margin-bottom:1.25rem; letter-spacing:0.02em;">¿Qué tipo de proyecto tenés?</h2>
+
+          <div class="tipos-grid" role="group" aria-label="Tipo de proyecto">
+
+            <button onclick="seleccionarTipo('Obra nueva')" class="tipo-btn" type="button">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span>Obra nueva</span>
+              <small>Construir desde cero en lote propio</small>
+            </button>
+
+            <button onclick="seleccionarTipo('Remodelación')" class="tipo-btn" type="button">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              <span>Remodelación</span>
+              <small>Transformar un espacio existente</small>
+            </button>
+
+            <button onclick="seleccionarTipo('Acabados e interiorismo')" class="tipo-btn" type="button">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+              <span>Acabados e interiorismo</span>
+              <small>Pisos, pintura, cocinas, baños</small>
+            </button>
+
+            <button onclick="seleccionarTipo('Diseños y estudios técnicos')" class="tipo-btn" type="button">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <span>Diseños y estudios técnicos</span>
+              <small>Planos, presupuestos, viabilidad</small>
+            </button>
+
+          </div>
+        </div><!-- /paso1 -->
+
+        <!-- PASO 2 -->
+        <div id="paso2" class="paso" style="display:none">
+          <button onclick="volverPaso1()" class="btn-volver" type="button">← Volver</button>
+          <div><span id="tipo-seleccionado" class="badge-tipo"></span></div>
+          <h2 class="contacto__title" style="margin-bottom:0.5rem;">Tus datos de contacto</h2>
+          <p class="contacto__subtitle">Te respondemos en menos de 24 horas</p>
+
+          <form name="contacto" method="POST" data-netlify="true" id="contacto-form" novalidate>
+            <input type="hidden" name="form-name" value="contacto">
+            <input type="hidden" name="tipo-proyecto" id="tipo-hidden">
+
+            <div class="campo">
+              <label for="nombre">Nombre completo *</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name">
+            </div>
+
+            <div class="campo">
+              <label for="telefono">Teléfono *</label>
+              <div class="tel-wrap">
+                <span class="prefijo">🇨🇴 +57</span>
+                <input type="tel" id="telefono" name="telefono" placeholder="300 000 0000" required autocomplete="tel">
+              </div>
+            </div>
+
+            <div class="campo">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" required autocomplete="email">
+            </div>
+
+            <div class="campo">
+              <label for="descripcion">Descripción del proyecto *</label>
+              <textarea id="descripcion" name="descripcion" rows="4"
+                placeholder="Contanos qué querés hacer..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-enviar" id="btn-enviar">Enviar solicitud →</button>
+          </form>
+
+          <div class="form-success" id="form-success">
+            <div class="form-success__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3>¡Solicitud enviada!</h3>
+            <p>Te contactamos en menos de 24 horas.<br>Revisá tu bandeja de entrada.</p>
+          </div>
+        </div><!-- /paso2 -->
+
+        <!-- INFO DE CONTACTO -->
+        <div class="contacto__info" aria-label="Información de contacto">
+          <p class="info-titulo">Información de contacto</p>
+
+          <div class="info-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>El Poblado, Medellín, Colombia</span>
+          </div>
+
+          <div class="info-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:constructoraurbania2023@gmail.com">constructoraurbania2023@gmail.com</a>
+          </div>
+
+          <div class="info-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <a href="https://wa.me/573000000000">+57 300 000 0000</a>
+          </div>
+
+          <div class="info-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Lunes a viernes 8:00am – 6:00pm</span>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ══════════════════════════════════════════════════
-         B) FORMULARIO + C) INFO DE CONTACTO
-    ══════════════════════════════════════════════════ -->
-    <section style="background:var(--color-negro);" aria-labelledby="contacto-titulo">
-      <div class="container">
-        <div class="contact-layout">
-
-          <!-- ── B) WIZARD DE COTIZACIÓN 2 PASOS ────── -->
-          <div class="contact-form-wrap animate-fade-left" id="quote-wizard">
-
-            <!-- Barra de progreso -->
-            <div class="quote-progress" aria-label="Progreso del formulario">
-              <div class="quote-progress__meta">
-                <span class="quote-progress__step" id="step-label">Paso 1 de 2</span>
-                <span class="quote-progress__hint" id="step-hint">Seleccioná el tipo de proyecto</span>
-              </div>
-              <div class="quote-progress__bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                <div class="quote-progress__fill" id="progress-fill"></div>
-              </div>
-            </div>
-
-            <!-- Slider -->
-            <div class="quote-slider">
-              <div class="quote-slides" id="quote-slides">
-
-                <!-- ── PASO 1: Tipo de proyecto ──────── -->
-                <div class="quote-slide" id="paso1" aria-labelledby="paso1-heading">
-                  <h2 class="quote-slide__heading" id="paso1-heading">¿Qué tipo de proyecto tenés?</h2>
-                  <p class="quote-slide__sub">Elegí una opción para continuar</p>
-
-                  <div class="project-type-grid" role="group" aria-label="Tipo de proyecto">
-
-                    <button class="project-type-card" type="button"
-                      data-value="obra-nueva" data-label="Obra nueva">
-                      <div class="project-type-card__icon" aria-hidden="true">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                          <polyline points="9 22 9 12 15 12 15 22"/>
-                        </svg>
-                      </div>
-                      <span class="project-type-card__title">Obra nueva</span>
-                      <span class="project-type-card__desc">Construir desde cero en lote propio</span>
-                    </button>
-
-                    <button class="project-type-card" type="button"
-                      data-value="remodelacion" data-label="Remodelación">
-                      <div class="project-type-card__icon" aria-hidden="true">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                        </svg>
-                      </div>
-                      <span class="project-type-card__title">Remodelación</span>
-                      <span class="project-type-card__desc">Transformar un espacio existente</span>
-                    </button>
-
-                    <button class="project-type-card" type="button"
-                      data-value="acabados-interiorismo" data-label="Acabados e interiorismo">
-                      <div class="project-type-card__icon" aria-hidden="true">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L3 14.67V21h6.33l10.06-10.06a5.5 5.5 0 0 0 0-7.78z"/>
-                          <line x1="13.5" y1="6.5" x2="17.5" y2="10.5"/>
-                        </svg>
-                      </div>
-                      <span class="project-type-card__title">Acabados e interiorismo</span>
-                      <span class="project-type-card__desc">Pisos, pintura, cocinas, baños</span>
-                    </button>
-
-                    <button class="project-type-card" type="button"
-                      data-value="disenos-estudios" data-label="Diseños y estudios técnicos">
-                      <div class="project-type-card__icon" aria-hidden="true">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M2 4h3v16H2zM19 4h3v16h-3z"/>
-                          <path d="M5 4h14M5 20h14M5 9h5M5 14h5"/>
-                          <circle cx="16" cy="12" r="2"/>
-                        </svg>
-                      </div>
-                      <span class="project-type-card__title">Diseños y estudios técnicos</span>
-                      <span class="project-type-card__desc">Planos, presupuestos, viabilidad</span>
-                    </button>
-
-                  </div>
-                </div><!-- /paso1 -->
-
-                <!-- ── PASO 2: Datos de contacto ─────── -->
-                <div class="quote-slide" id="paso2" aria-labelledby="paso2-heading">
-
-                  <button class="quote-back" id="quote-back" type="button" aria-label="Volver al paso 1">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                      <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Volver
-                  </button>
-
-                  <div class="quote-selected-badge" id="selected-badge" aria-live="polite"></div>
-
-                  <h2 class="quote-slide__heading" id="paso2-heading">Tus datos de contacto</h2>
-                  <p class="quote-slide__sub">Te respondemos en menos de 24 horas</p>
-
-                  <form
-                    class="contact-form"
-                    id="contact-form"
-                    name="contacto"
-                    method="POST"
-                    netlify
-                    netlify-honeypot="bot-field"
-                    novalidate
-                  >
-                    <!-- Campo honeypot (anti-spam Netlify) -->
-                    <p style="display:none;"><label>No llenar: <input name="bot-field" /></label></p>
-
-                    <!-- Tipo de proyecto (hidden, llenado por el wizard) -->
-                    <input type="hidden" name="tipo_proyecto" id="tipo-proyecto" value="" />
-
-                    <!-- Nombre -->
-                    <div class="form-group">
-                      <label class="form-label" for="nombre">
-                        Nombre completo <span aria-hidden="true">*</span>
-                      </label>
-                      <input type="text" id="nombre" name="nombre" class="form-input"
-                        placeholder="Tu nombre" required autocomplete="name" />
-                      <span class="form-error" id="error-nombre" role="alert">Por favor ingresá tu nombre.</span>
-                    </div>
-
-                    <!-- Fila: Teléfono + Email -->
-                    <div class="form-row">
-                      <div class="form-group">
-                        <label class="form-label" for="telefono">
-                          Teléfono <span aria-hidden="true">*</span>
-                        </label>
-                        <div class="input-prefix">
-                          <span class="input-prefix__code" aria-hidden="true">🇨🇴 +57</span>
-                          <input type="tel" id="telefono" name="telefono" class="form-input"
-                            placeholder="300 000 0000" required autocomplete="tel"
-                            pattern="[0-9\s\-]{7,15}" />
-                        </div>
-                        <span class="form-error" id="error-telefono" role="alert">Ingresá un número válido.</span>
-                      </div>
-
-                      <div class="form-group">
-                        <label class="form-label" for="email">
-                          Email <span aria-hidden="true">*</span>
-                        </label>
-                        <input type="email" id="email" name="email" class="form-input"
-                          placeholder="tu@email.com" required autocomplete="email" />
-                        <span class="form-error" id="error-email" role="alert">Ingresá un email válido.</span>
-                      </div>
-                    </div>
-
-                    <!-- Descripción -->
-                    <div class="form-group">
-                      <label class="form-label" for="descripcion">
-                        Descripción breve del proyecto <span aria-hidden="true">*</span>
-                      </label>
-                      <textarea id="descripcion" name="descripcion" class="form-textarea"
-                        placeholder="Contanos qué querés hacer — tipo: remodelar cocina y baño de 80m², o construir casa de dos pisos en Envigado..."
-                        required rows="4"></textarea>
-                      <span class="form-error" id="error-descripcion" role="alert">Contanos brevemente tu proyecto.</span>
-                    </div>
-
-                    <!-- Submit -->
-                    <button type="submit" class="btn btn-dorado btn-submit" id="btn-submit">
-                      Enviar solicitud
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </button>
-
-                  </form>
-
-                  <!-- Éxito -->
-                  <div class="form-success" id="form-success" role="alert" aria-live="polite">
-                    <div class="form-success__icon">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                        <polyline points="22 4 12 14.01 9 11.01"/>
-                      </svg>
-                    </div>
-                    <p class="form-success__title">¡Solicitud recibida!</p>
-                    <p class="form-success__sub">Te respondemos en menos de 24 horas hábiles.<br>Revisá también tu bandeja de spam.</p>
-                  </div>
-
-                </div><!-- /paso2 -->
-
-              </div><!-- /quote-slides -->
-            </div><!-- /quote-slider -->
-
-          </div><!-- /quote-wizard -->
-
-          <!-- ── C) INFORMACIÓN DE CONTACTO ──────────── -->
-          <div class="contact-info-wrap animate-on-scroll delay-1">
-
-            <div class="contact-info-block">
-
-              <div class="contact-info-item">
-                <div class="contact-info-item__icon" aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                </div>
-                <div class="contact-info-item__body">
-                  <span class="contact-info-item__label">Ubicación</span>
-                  <span class="contact-info-item__value">
-                    El Poblado, Medellín<br>Antioquia, Colombia
-                  </span>
-                </div>
-              </div>
-
-              <div class="contact-info-item">
-                <div class="contact-info-item__icon" aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                </div>
-                <div class="contact-info-item__body">
-                  <span class="contact-info-item__label">Email</span>
-                  <span class="contact-info-item__value">
-                    <a href="mailto:constructoraurbania2023@gmail.com">constructoraurbania2023@gmail.com</a>
-                  </span>
-                </div>
-              </div>
-
-              <div class="contact-info-item">
-                <div class="contact-info-item__icon" aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                </div>
-                <div class="contact-info-item__body">
-                  <span class="contact-info-item__label">WhatsApp</span>
-                  <span class="contact-info-item__value">
-                    <a href="https://wa.me/573000000000" target="_blank" rel="noopener">+57 300 000 0000</a>
-                  </span>
-                </div>
-              </div>
-
-              <div class="contact-info-item">
-                <div class="contact-info-item__icon" aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                </div>
-                <div class="contact-info-item__body">
-                  <span class="contact-info-item__label">Horario de atención</span>
-                  <span class="contact-info-item__value">
-                    Lunes a viernes<br>8:00 am – 6:00 pm
-                  </span>
-                </div>
-              </div>
-
-            </div><!-- /contact-info-block -->
-
-            <!-- Redes sociales -->
-            <div class="contact-socials">
-              <p class="contact-socials__title">Seguinos en redes</p>
-              <div class="contact-socials__links">
-
-                <a href="https://www.instagram.com/constructoraurbania_/" class="contact-social-link" aria-label="Instagram de Urbania">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-                  Instagram
-                </a>
-
-                <a href="https://www.facebook.com/profile.php?id=61552761448288" class="contact-social-link" aria-label="Facebook de Urbania">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                  Facebook
-                </a>
-
-                <!-- pendiente link LinkedIn --><a href="#" class="contact-social-link" aria-label="LinkedIn de Urbania">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                  LinkedIn
-                </a>
-
-              </div>
-            </div>
-
-          </div><!-- /contact-info-wrap -->
-
-        </div><!-- /contact-layout -->
-      </div><!-- /container -->
-    </section>
-
-    <!-- ══════════════════════════════════════════════════
-         D) FRANJA WHATSAPP
-    ══════════════════════════════════════════════════ -->
-    <section class="whatsapp-strip" aria-label="Contacto por WhatsApp">
-      <div class="container">
-        <h2 class="whatsapp-strip__headline animate-on-scroll">
-          También podés escribirnos<br>directamente por WhatsApp
-        </h2>
-        <p class="whatsapp-strip__sub animate-on-scroll delay-1">
-          Respondemos en horario hábil. Mandanos una foto, un plano,
-          lo que tengas — y arrancamos desde ahí.
-        </p>
-        <a
-          href="https://wa.me/573000000000?text=Hola%20Urbania%2C%20me%20interesa%20cotizar%20un%20proyecto."
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-whatsapp animate-on-scroll delay-2"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-          </svg>
-          Abrir WhatsApp
-        </a>
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
     <div class="container">
       <span class="footer__gold-accent" aria-hidden="true"></span>
@@ -410,118 +501,44 @@
   <script src="js/main.js" defer></script>
   <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
 
-  <!-- ── WIZARD DE COTIZACIÓN ─────────────────────────────── -->
   <script>
-  (function initQuoteWizard() {
-    var slides       = document.getElementById('quote-slides');
-    var progressFill = document.getElementById('progress-fill');
-    var stepLabel    = document.getElementById('step-label');
-    var stepHint     = document.getElementById('step-hint');
-    var selectedBadge = document.getElementById('selected-badge');
-    var hiddenType   = document.getElementById('tipo-proyecto');
-    var form         = document.getElementById('contact-form');
-    var btnSubmit    = document.getElementById('btn-submit');
-    var formSuccess  = document.getElementById('form-success');
-    if (!slides || !form) return;
-
-    /* ── Helpers de validación ──────────────────────────── */
-    function showErr(id, errId) {
-      var f = document.getElementById(id), m = document.getElementById(errId);
-      if (f) f.classList.add('error');
-      if (m) m.classList.add('visible');
-    }
-    function clearErr(id, errId) {
-      var f = document.getElementById(id), m = document.getElementById(errId);
-      if (f) f.classList.remove('error');
-      if (m) m.classList.remove('visible');
-    }
-    function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
-    function isPhone(v) { return /^[\d\s\-]{7,15}$/.test(v.trim()); }
-
-    /* Limpiar errores al escribir */
-    [['nombre','error-nombre'],['telefono','error-telefono'],
-     ['email','error-email'],['descripcion','error-descripcion']
-    ].forEach(function(p) {
-      var el = document.getElementById(p[0]);
-      if (el) el.addEventListener('input', function() { clearErr(p[0], p[1]); });
-    });
-
-    /* ── Paso 1 → 2 ─────────────────────────────────────── */
-    document.querySelectorAll('.project-type-card').forEach(function(card) {
-      card.addEventListener('click', function() {
-        var value = card.dataset.value;
-        var label = card.dataset.label;
-
-        hiddenType.value = value;
-        selectedBadge.innerHTML =
-          '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">' +
-          '<polyline points="2,6 5,9 10,3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>' +
-          '</svg> ' + label;
-
-        slides.classList.add('show-paso2');
-        progressFill.classList.add('paso2');
-        stepLabel.textContent  = 'Paso 2 de 2';
-        stepHint.textContent   = 'Completá tus datos';
-
-        document.getElementById('quote-wizard')
-          .scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-
-    /* ── Paso 2 → 1 ─────────────────────────────────────── */
-    var backBtn = document.getElementById('quote-back');
-    if (backBtn) {
-      backBtn.addEventListener('click', function() {
-        slides.classList.remove('show-paso2');
-        progressFill.classList.remove('paso2');
-        stepLabel.textContent = 'Paso 1 de 2';
-        stepHint.textContent  = 'Seleccioná el tipo de proyecto';
-      });
+    function seleccionarTipo(tipo) {
+      document.getElementById('tipo-hidden').value = tipo;
+      document.getElementById('tipo-seleccionado').textContent = '✓ ' + tipo;
+      document.getElementById('paso1').style.display = 'none';
+      document.getElementById('paso2').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    /* ── Envío del formulario ────────────────────────────── */
-    form.addEventListener('submit', async function(e) {
+    function volverPaso1() {
+      document.getElementById('paso1').style.display = 'block';
+      document.getElementById('paso2').style.display = 'none';
+    }
+
+    /* Envío a Netlify */
+    document.getElementById('contacto-form').addEventListener('submit', async function(e) {
       e.preventDefault();
-
-      var nombre      = document.getElementById('nombre').value.trim();
-      var telefono    = document.getElementById('telefono').value.trim();
-      var email       = document.getElementById('email').value.trim();
-      var descripcion = document.getElementById('descripcion').value.trim();
-      var valid = true;
-
-      if (!nombre)          { showErr('nombre',      'error-nombre');      valid = false; }
-      else                    clearErr('nombre',      'error-nombre');
-      if (!isPhone(telefono)){ showErr('telefono',   'error-telefono');    valid = false; }
-      else                    clearErr('telefono',   'error-telefono');
-      if (!isEmail(email))  { showErr('email',       'error-email');       valid = false; }
-      else                    clearErr('email',       'error-email');
-      if (descripcion.length < 10) { showErr('descripcion','error-descripcion'); valid = false; }
-      else                    clearErr('descripcion','error-descripcion');
-
-      if (!valid) return;
-
-      btnSubmit.disabled = true;
-      btnSubmit.textContent = 'Enviando…';
-
+      var btn = document.getElementById('btn-enviar');
+      btn.disabled = true;
+      btn.textContent = 'Enviando…';
       try {
-        var body = new FormData(form);
+        var body = new URLSearchParams(new FormData(this)).toString();
         var res = await fetch('/', {
           method: 'POST',
-          headers: { 'Accept': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(body).toString(),
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: body
         });
         if (res.ok) {
-          form.style.display = 'none';
-          formSuccess.classList.add('visible');
-          formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          this.style.display = 'none';
+          document.getElementById('form-success').classList.add('visible');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         } else { throw new Error(); }
-      } catch (err) {
-        btnSubmit.disabled = false;
-        btnSubmit.innerHTML = 'Enviar solicitud <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      } catch(err) {
+        btn.disabled = false;
+        btn.textContent = 'Enviar solicitud →';
         alert('Hubo un problema al enviar. Por favor intentá de nuevo o escribinos por WhatsApp.');
       }
     });
-  })();
   </script>
 
   <!-- WhatsApp FAB -->
