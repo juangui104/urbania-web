@@ -2712,32 +2712,35 @@ p {
   .article-grid { grid-template-columns: 1fr; }
   .article-layout { grid-template-columns: 1fr; }
   .sidebar { position: static; }
-  /* Contenedor externo: overflow-x solo aquí, no en hijos */
+  /* Contenedor externo: sin overflow para no cortar hijos */
   .contact-layout {
     grid-template-columns: 1fr;
     gap: var(--space-12);
-    overflow-x: hidden;
     width: 100%;
     box-sizing: border-box;
   }
   .contact-info-wrap { position: static; }
   .form-row { grid-template-columns: 1fr; }
-  /* Formulario: sin overflow hidden para no cortar hijos */
+  /* Formulario: sin padding extra ni overflow que corte hijos */
   .contact-form-wrap {
-    padding: 1.5rem 1rem;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
     overflow: visible;
   }
-  /* Slider: overflow hidden solo en el track, no en los slides */
+  /* Slider: ancho explícito para que min-width:100% en slides resuelva bien */
   .quote-slider {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
   }
-  .quote-slide,
   .quote-slides {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+  .quote-slide {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
