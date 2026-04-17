@@ -271,7 +271,7 @@
 
 /* ── 10. PARALLAX HERO ───────────────────────────────────── */
 (function initParallax() {
-  if (window.matchMedia('(max-width: 768px)').matches) return;
+  if (window.innerWidth < 768) return;
 
   var HERO_FACTOR  = 0.30;
   var CARD_FACTOR  = 0.05;

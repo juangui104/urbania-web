@@ -132,6 +132,15 @@
   animation: kenBurns 8s ease-in-out infinite;
 }
 
+@media (max-width: 768px) {
+  .hero__bg,
+  [class*="hero-bg"],
+  .hero-interior__bg {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
 /* ── 5. CONTADORES / CIFRAS (para sección stats futura) ─── */
 
 @keyframes countUp {

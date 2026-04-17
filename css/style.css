@@ -2715,6 +2715,23 @@ p {
   .contact-layout { grid-template-columns: 1fr; gap: var(--space-12); }
   .contact-info-wrap { position: static; }
   .form-row { grid-template-columns: 1fr; }
+
+  .contact-layout,
+  .contact-form-wrap,
+  .contact-info-wrap,
+  .quote-slider,
+  .quote-slides,
+  .quote-slide,
+  .project-type-grid,
+  .contact-cta {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
 }
 
 /* ════════════════════════════════════════════════════════════
