@@ -2712,31 +2712,64 @@ p {
   .article-grid { grid-template-columns: 1fr; }
   .article-layout { grid-template-columns: 1fr; }
   .sidebar { position: static; }
-  .contact-layout { grid-template-columns: 1fr; gap: var(--space-12); overflow-x: hidden; }
+  /* Contenedor externo: overflow-x solo aquí, no en hijos */
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
   .contact-info-wrap { position: static; }
   .form-row { grid-template-columns: 1fr; }
-  /* Fix formulario cortado en móvil */
+  /* Formulario: sin overflow hidden para no cortar hijos */
   .contact-form-wrap {
     padding: 1.5rem 1rem;
     width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
-    overflow-x: hidden;
+    overflow: visible;
   }
+  /* Slider: overflow hidden solo en el track, no en los slides */
+  .quote-slider {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .quote-slide,
+  .quote-slides {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+  /* Inputs y textareas */
   .form-input,
   .form-textarea,
   .form-select {
-    width: 100%;
-    box-sizing: border-box;
-    max-width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
   }
   .input-prefix {
     width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
   }
-  .project-type-card {
+  /* Tarjetas tipo de proyecto */
+  .project-type-grid {
     width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
-    margin: 0;
+    overflow: visible;
+  }
+  .project-type-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    overflow: visible !important;
   }
 }
 
