@@ -1,0 +1,41 @@
+[build]
+command = "jekyll build"
+publish = "_site"
+
+[build.environment]
+JEKYLL_ENV = "production"
+
+[[redirects]]
+from = "/index.html"
+to = "/"
+status = 301
+
+[[redirects]]
+from = "/nosotros.html"
+to = "/nosotros/"
+status = 301
+
+[[redirects]]
+from = "/proyectos.html"
+to = "/proyectos/"
+status = 301
+
+[[redirects]]
+from = "/blog.html"
+to = "/blog/"
+status = 301
+
+[[redirects]]
+from = "/contacto.html"
+to = "/contacto/"
+status = 301
+
+[[redirects]]
+from = "/casa-calera.html"
+to = "/proyectos/casa-calera/"
+status = 301
+
+[[redirects]]
+from = "/cantero.html"
+to = "/proyectos/cantero/"
+status = 301

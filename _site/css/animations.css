@@ -1,0 +1,263 @@
+/* ============================================================
+   URBANIA — animations.css
+   Animaciones, transiciones y efectos de entrada
+   ============================================================ */
+
+/* ── 1. FADE-UP (IntersectionObserver) ──────────────────── */
+/*
+   Uso: añadir clase .animate-on-scroll a cualquier elemento.
+   Al entrar en viewport, js/main.js le añade clase .visible.
+*/
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity 0.72s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.72s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Variantes de delay para stagger en grids */
+.animate-on-scroll.delay-1 { transition-delay: 0.10s; }
+.animate-on-scroll.delay-2 { transition-delay: 0.20s; }
+.animate-on-scroll.delay-3 { transition-delay: 0.30s; }
+.animate-on-scroll.delay-4 { transition-delay: 0.40s; }
+.animate-on-scroll.delay-5 { transition-delay: 0.50s; }
+
+/* Variante fade-left */
+.animate-fade-left {
+  opacity: 0;
+  transform: translateX(-36px);
+  transition:
+    opacity 0.72s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.72s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-fade-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Variante fade (solo opacidad) */
+.animate-fade {
+  opacity: 0;
+  transition: opacity 0.90s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-fade.visible {
+  opacity: 1;
+}
+
+/* Variante scale-in */
+.animate-scale-in {
+  opacity: 0;
+  transform: scale(0.92);
+  transition:
+    opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── 2. NAVBAR SCROLL ────────────────────────────────────── */
+/*
+   Aplicado desde js/main.js al añadir clase .scrolled al .navbar.
+   Las propiedades de transición están en style.css (navbar section).
+   Aquí definimos el keyframe del logo que pulsa sutilmente
+   cuando la navbar se hace sólida.
+*/
+
+@keyframes logoAppear {
+  from { opacity: 0.6; transform: translateY(-4px); }
+  to   { opacity: 1;   transform: translateY(0); }
+}
+
+.navbar.scrolled .navbar__logo {
+  animation: logoAppear 0.35s ease forwards;
+}
+
+/* ── 3. HOVER TARJETAS ────────────────────────────────────── */
+
+/* Línea dorada inferior animada — ya definida en style.css
+   vía ::before con scaleX. Aquí complementamos con glow sutil. */
+
+.service-card:hover {
+  --glow: 0 0 0 1px var(--color-dorado-20), 0 8px 32px rgba(0,0,0,0.40);
+  box-shadow: var(--glow);
+}
+
+/* Efecto shimmer en botones dorados */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.btn-dorado::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255,255,255,0.22) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.btn-dorado:hover::before {
+  opacity: 1;
+  animation: shimmer 0.70s ease forwards;
+}
+
+/* ── 4. HERO — Ken Burns sutil ──────────────────────────── */
+
+@keyframes kenBurns {
+  0%, 100% { scale: 1.0; }
+  50%       { scale: 1.08; }
+}
+
+.hero__bg,
+.hero-interior__bg {
+  animation: kenBurns 8s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .hero__bg,
+  [class*="hero-bg"],
+  .hero-interior__bg {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* ── 6. MENÚ MÓVIL — deslizamiento de links ─────────────── */
+
+@keyframes mobileNavItem {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.navbar__mobile-menu.open .navbar__link {
+  animation: mobileNavItem 0.45s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.navbar__mobile-menu.open .navbar__link:nth-child(1) { animation-delay: 0.08s; }
+.navbar__mobile-menu.open .navbar__link:nth-child(2) { animation-delay: 0.14s; }
+.navbar__mobile-menu.open .navbar__link:nth-child(3) { animation-delay: 0.20s; }
+.navbar__mobile-menu.open .navbar__link:nth-child(4) { animation-delay: 0.26s; }
+.navbar__mobile-menu.open .navbar__link:nth-child(5) { animation-delay: 0.32s; }
+.navbar__mobile-menu.open .navbar__link:nth-child(6) { animation-delay: 0.38s; }
+
+/* ── 7. SCROLL INDICATOR (hero) ─────────────────────────── */
+
+.scroll-indicator {
+  position: absolute;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  opacity: 0.65;
+}
+
+.scroll-indicator__line {
+  width: 1px;
+  height: 52px;
+  background: linear-gradient(to bottom, var(--color-dorado), transparent);
+  animation: scrollLine 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  51%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+
+.scroll-indicator__label {
+  font-size: 9px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  writing-mode: vertical-rl;
+}
+
+/* ── 9. REDUCE MOTION ────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-on-scroll,
+  .animate-fade-left,
+  .animate-fade,
+  .animate-scale-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero-line-inner--animated,
+  .hero-reveal-fade--animated {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero-line-mask {
+    overflow: visible;
+  }
+}
+
+/* ── 10. HERO REVEAL CINEMATOGRÁFICO ─────────────────────── */
+
+/* Contenedor-máscara: el overflow:hidden oculta el span interior
+   mientras está en translateY(110%), creando el efecto de "salida" */
+.hero-line-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em; /* evita clipping de descendentes (g, y, p…) */
+}
+
+.hero-line-inner {
+  display: block;
+  will-change: transform, opacity;
+}
+
+/* fill-mode: both → aplica el estado "from" durante el delay
+   (elemento invisible mientras espera su turno) */
+.hero-line-inner--animated {
+  animation: heroLineReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes heroLineReveal {
+  from { transform: translateY(110%); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
+
+.hero-reveal-fade--animated {
+  animation: heroFadeReveal 0.70s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes heroFadeReveal {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
