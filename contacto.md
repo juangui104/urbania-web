@@ -105,7 +105,7 @@ permalink: /contacto/
             <label for="telefono">Teléfono *</label>
             <div class="tel-wrap">
               <span class="prefijo">🇨🇴 +57</span>
-              <input type="tel" id="telefono" name="telefono" placeholder="300 000 0000" required autocomplete="tel">
+              <input type="tel" id="telefono" name="telefono" placeholder="320 624 8693" required autocomplete="tel">
             </div>
           </div>
           <div class="campo">

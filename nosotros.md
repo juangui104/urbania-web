@@ -53,7 +53,17 @@ permalink: /nosotros/
     <div class="container">
       <div class="split-section__grid">
         <div class="split-section__img-wrap animate-fade-left">
-          <img src="https://picsum.photos/800/1000?random=32" alt="Equipo Urbania en obra" loading="lazy" />
+          <img
+            src="{{ "/assets/images/equipo/juangui-cardona.webp" | relative_url }}"
+            alt="Juan Guillermo Cardona - Fundador de Urbania"
+            loading="lazy"
+            class="team-photo"
+          />
+          <div class="team-caption">
+            <strong class="team-caption__name">Juan Guillermo Cardona</strong>
+            <span class="team-caption__role">Fundador &amp; Director de Obra</span>
+            <p class="team-caption__bio">Ingeniero civil con más de 10 años de experiencia en construcción y remodelación en Medellín</p>
+          </div>
         </div>
         <div class="split-section__body animate-on-scroll delay-1">
           <span class="gold-line"></span>
@@ -249,5 +259,41 @@ permalink: /nosotros/
   <style>
     @media (max-width: 768px) {
       .statement-grid { grid-template-columns: 1fr !important; gap: var(--space-8) !important; }
+    }
+
+    .team-photo {
+      border-radius: 4px;
+      width: 100%;
+      max-width: 480px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .team-caption {
+      margin-top: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+
+    .team-caption__name {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    .team-caption__role {
+      font-size: var(--text-sm);
+      color: var(--color-dorado);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .team-caption__bio {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin: 0;
+      max-width: 38ch;
+      line-height: 1.6;
     }
   </style>
