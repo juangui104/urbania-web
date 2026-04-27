@@ -1,0 +1,5 @@
+<Files "config.yml">
+  Header set Content-Type "application/yaml"
+</Files>
+
+AddType application/yaml .yml

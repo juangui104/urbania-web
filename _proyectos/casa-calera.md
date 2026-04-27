@@ -3,7 +3,7 @@ layout: proyecto
 title: Casa Calera
 categoria: Obra nueva
 ubicacion: Medellín, Colombia
-anio: 2024
+anio: 2022
 imagen_principal: /assets/images/proyectos/casa-calera-1.webp
 galeria:
   - /assets/images/proyectos/casa-calera-2.webp
@@ -24,10 +24,7 @@ proyecto_siguiente_nombre: Apartamento Cantero
       El reto
     </h2>
     <p style="color:rgba(255,255,255,0.70); line-height:1.80; font-size:var(--text-base);">
-      El cliente contaba con un lote en el sector de La Calera con una
-      pendiente pronunciada y acceso complicado. Necesitaba una vivienda
-      unifamiliar funcional que aprovechara las vistas al valle sin
-      sacrificar el presupuesto en soluciones estructurales costosas.
+      El cliente contaba con un lote en el sector de La Calera con una pendiente pronunciada y acceso complicado. Necesitaba una vivienda unifamiliar funcional que aprovechara las vistas al valle sin sacrificar el presupuesto en soluciones estructurales costosas.
     </p>
   </div>
 
@@ -36,12 +33,7 @@ proyecto_siguiente_nombre: Apartamento Cantero
       La solución
     </h2>
     <p style="color:rgba(255,255,255,0.70); line-height:1.80; font-size:var(--text-base);">
-      Propusimos una planta escalonada que sigue la topografía del terreno,
-      minimizando el movimiento de tierra. Tres niveles con acceso independiente
-      por piso, diseñados para aprovechar la orientación solar y las vistas
-      al valle. El proceso completo — desde la excavación hasta la entrega —
-      fue gestionado por Urbania sin que el cliente tuviera que coordinar
-      un solo proveedor.
+      Propusimos una planta escalonada que sigue la topografía del terreno, minimizando el movimiento de tierra. Dos niveles más parqueadero y una sótano que se configuró gracias a la buena distribución en el lote, diseñados para aprovechar la orientación solar y las vistas a la ciudad. El proceso completo — desde la excavación hasta la entrega — fue gestionado por Urbania sin que el cliente tuviera que coordinar un solo proveedor.
     </p>
   </div>
 

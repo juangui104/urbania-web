@@ -1,6 +1,6 @@
 <?php
 $client_id = 'Ov23li1JqVAcBgxugZwa';
-$client_secret = 'TU_CLIENT_SECRET_AQUI';
+$client_secret = '5d5a519d33806b88f91e4adff38bc547e3c62baa';
 
 if (isset($_GET['code'])) {
     $code = $_GET['code'];
@@ -20,18 +20,39 @@ if (isset($_GET['code'])) {
     curl_close($ch);
 
     $data = json_decode($response, true);
-    $token = $data['access_token'];
 
-    echo "<script>
-        (function() {
-            window.opener.postMessage(
-                'authorization:github:success:{\"token\":\"" . $token . "\",\"provider\":\"github\"}',
-                '*'
-            );
-        })()
-    </script>";
+    if (isset($data['access_token'])) {
+        $token = $data['access_token'];
+        $message = 'authorization:github:success:' . json_encode([
+            'token' => $token,
+            'provider' => 'github'
+        ]);
+    } else {
+        $message = 'authorization:github:error:' . json_encode([
+            'message' => 'Failed to get token'
+        ]);
+    }
+
+    echo "<!DOCTYPE html>
+<html>
+<head><title>Authenticating...</title></head>
+<body>
+<script>
+(function() {
+    var message = " . json_encode($message) . ";
+    if (window.opener) {
+        window.opener.postMessage(message, '*');
+        window.close();
+    } else {
+        document.body.innerHTML = '<p>Authentication complete. You can close this window.</p>';
+    }
+})();
+</script>
+</body>
+</html>";
 } else {
-    $redirect = urlencode('https://constructoraurbania.com/api/auth');
-    header('Location: https://github.com/login/oauth/authorize?client_id=' . $client_id . '&scope=repo,user&redirect_uri=' . $redirect);
+    $redirect = 'https://constructoraurbania.com/api/auth';
+    header('Location: https://github.com/login/oauth/authorize?client_id=' . $client_id . '&scope=repo,user&redirect_uri=' . urlencode($redirect));
+    exit;
 }
 ?>

@@ -13,7 +13,7 @@ galeria:
   - /assets/images/proyectos/cantero-6.webp
   - /assets/images/proyectos/cantero-7.webp
 destacado: true
-descripcion_corta: "Intervención completa de acabados en apartamento en El Poblado. Pisos en porcelanato formato grande, cocina abierta con isla, baños renovados y carpintería a medida."
+descripcion_corta: "Intervención completa de acabados en apartamento en El Poblado. Pisos en porcelanato formato grande, cocina abierta con isla, baños de lujo y carpintería a medida."
 ---
 
 <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-12); margin-top:var(--space-8);" class="desc-grid">
@@ -23,10 +23,7 @@ descripcion_corta: "Intervención completa de acabados en apartamento en El Pobl
       El reto
     </h2>
     <p style="color:rgba(255,255,255,0.70); line-height:1.80; font-size:var(--text-base);">
-      El apartamento tenía acabados originales de los años 90, desactualizados
-      y sin coherencia entre espacios. El cliente quería transformarlo en un
-      espacio contemporáneo de alto estándar, con materiales de calidad que
-      resistieran el uso diario y valorizaran el inmueble para una eventual venta.
+      El cliente tenía un apartamento en El Poblado, entregado completamente en obra gris (únicamente muros perimetrales). El propietario buscaba desarrollar un proyecto con acabados a la vanguardia, pero manteniendo rentable su inversión. El objetivo era una intervención completa que elevara el valor del apartamento sin tocar la estructura.
     </p>
   </div>
 
@@ -35,11 +32,7 @@ descripcion_corta: "Intervención completa de acabados en apartamento en El Pobl
       La solución
     </h2>
     <p style="color:rgba(255,255,255,0.70); line-height:1.80; font-size:var(--text-base);">
-      Intervinimos la totalidad del apartamento con un enfoque de interiorismo
-      integral: pisos en porcelanato formato 80x80, cocina abierta con isla
-      en granito, baños renovados con enchapes importados y carpintería a medida
-      en closets y zonas de almacenamiento. El resultado fue un espacio con
-      identidad propia y un valor de reventa significativamente elevado.
+      Se configuró un diseño a las necesidades del cliente: exclusivo como el tipo de propiedad lo exigía, pero que cumplía con los costos y la rentabilidad esperada. Se usaron acabados contemporáneos: porcelanatos, mármoles, sanitarios de línea contemporánea y carpintería a medida. Cada material fue seleccionado por su calidad, durabilidad y coherencia con el conjunto.
     </p>
   </div>
 
