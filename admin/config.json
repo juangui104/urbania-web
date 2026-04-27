@@ -1,0 +1,69 @@
+{
+  "backend": {
+    "name": "github",
+    "repo": "juangui104/urbania-web",
+    "branch": "main",
+    "base_url": "https://constructoraurbania.com",
+    "auth_endpoint": "api/auth"
+  },
+  "media_folder": "assets/images/uploads",
+  "public_folder": "/assets/images/uploads",
+  "locale": "es",
+  "collections": [
+    {
+      "name": "proyectos",
+      "label": "Proyectos",
+      "folder": "_proyectos",
+      "create": true,
+      "slug": "{{slug}}",
+      "fields": [
+        {"label": "Nombre", "name": "title", "widget": "string"},
+        {"label": "Categoría", "name": "categoria", "widget": "select",
+         "options": ["Obra nueva", "Remodelación", "Acabados e interiorismo", "Diseños y estudios técnicos"]},
+        {"label": "Ubicación", "name": "ubicacion", "widget": "string", "default": "Medellín, Colombia"},
+        {"label": "Año", "name": "anio", "widget": "string"},
+        {"label": "Imagen principal", "name": "imagen_principal", "widget": "image"},
+        {"label": "Descripción", "name": "body", "widget": "markdown"},
+        {"label": "Galería", "name": "galeria", "widget": "list",
+         "field": {"label": "Imagen", "name": "imagen", "widget": "image"}},
+        {"label": "Destacado", "name": "destacado", "widget": "boolean", "default": false}
+      ]
+    },
+    {
+      "name": "posts",
+      "label": "Blog",
+      "folder": "_posts",
+      "create": true,
+      "slug": "{{year}}-{{month}}-{{day}}-{{slug}}",
+      "fields": [
+        {"label": "Título", "name": "title", "widget": "string"},
+        {"label": "Categoría", "name": "categoria", "widget": "select",
+         "options": ["Remodelación", "Obra nueva", "Interiorismo", "Consejos", "Presupuesto", "Materiales"]},
+        {"label": "Fecha", "name": "date", "widget": "datetime"},
+        {"label": "Imagen", "name": "imagen", "widget": "image"},
+        {"label": "Extracto", "name": "extracto", "widget": "text"},
+        {"label": "Contenido", "name": "body", "widget": "markdown"}
+      ]
+    },
+    {
+      "name": "configuracion",
+      "label": "Configuración",
+      "files": [
+        {
+          "label": "Datos de contacto",
+          "name": "configuracion",
+          "file": "_data/configuracion.yml",
+          "fields": [
+            {"label": "WhatsApp", "name": "whatsapp", "widget": "string"},
+            {"label": "Teléfono visible", "name": "telefono", "widget": "string"},
+            {"label": "Email", "name": "email", "widget": "string"},
+            {"label": "Instagram", "name": "instagram", "widget": "string"},
+            {"label": "Facebook", "name": "facebook", "widget": "string"},
+            {"label": "Dirección", "name": "direccion", "widget": "string"},
+            {"label": "Horario", "name": "horario", "widget": "string"}
+          ]
+        }
+      ]
+    }
+  ]
+}
