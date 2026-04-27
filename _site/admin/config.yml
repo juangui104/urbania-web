@@ -1,8 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: juangui104/urbania-web
   branch: main
-  identity_url: "https://urbania-site.netlify.app/.netlify/identity"
-  gateway_url: "https://urbania-site.netlify.app/.netlify/git"
+  base_url: https://constructoraurbania.com
+  auth_endpoint: api/auth
 
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
@@ -26,12 +27,10 @@ collections:
       - {label: "Año", name: "anio", widget: "string"}
       - {label: "Imagen principal", name: "imagen_principal",
          widget: "image"}
-      - {label: "Descripción corta", name: "descripcion_corta",
-         widget: "text"}
-      - {label: "Descripción completa", name: "body", widget: "markdown"}
+      - {label: "Descripción", name: "body", widget: "markdown"}
       - {label: "Galería", name: "galeria", widget: "list",
          field: {label: "Imagen", name: "imagen", widget: "image"}}
-      - {label: "Destacado en inicio", name: "destacado",
+      - {label: "Destacado", name: "destacado",
          widget: "boolean", default: false}
 
   - name: "posts"
@@ -57,11 +56,10 @@ collections:
         file: "_data/configuracion.yml"
         fields:
           - {label: "WhatsApp", name: "whatsapp", widget: "string"}
+          - {label: "Teléfono visible", name: "telefono",
+             widget: "string"}
           - {label: "Email", name: "email", widget: "string"}
           - {label: "Instagram", name: "instagram", widget: "string"}
           - {label: "Facebook", name: "facebook", widget: "string"}
-          - {label: "LinkedIn", name: "linkedin", widget: "string"}
           - {label: "Dirección", name: "direccion", widget: "string"}
           - {label: "Horario", name: "horario", widget: "string"}
-          - {label: "Teléfono (display)", name: "telefono", widget: "string"}
-          - {label: "Teléfono (raw)", name: "telefono_raw", widget: "string"}
