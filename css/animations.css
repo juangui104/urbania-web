@@ -141,17 +141,6 @@
   }
 }
 
-/* ── 5. CONTADORES / CIFRAS (para sección stats futura) ─── */
-
-@keyframes countUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.stat-number.visible {
-  animation: countUp 0.55s ease forwards;
-}
-
 /* ── 6. MENÚ MÓVIL — deslizamiento de links ─────────────── */
 
 @keyframes mobileNavItem {
@@ -170,18 +159,7 @@
 .navbar__mobile-menu.open .navbar__link:nth-child(5) { animation-delay: 0.32s; }
 .navbar__mobile-menu.open .navbar__link:nth-child(6) { animation-delay: 0.38s; }
 
-/* ── 7. LÍNEA DECORATIVA PULSANTE (acento hero) ──────────── */
-
-@keyframes linePulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.45; }
-}
-
-.gold-line--pulse {
-  animation: linePulse 2.8s ease-in-out infinite;
-}
-
-/* ── 8. SCROLL INDICATOR (hero) ─────────────────────────── */
+/* ── 7. SCROLL INDICATOR (hero) ─────────────────────────── */
 
 .scroll-indicator {
   position: absolute;
