@@ -48,9 +48,16 @@ if (isset($_GET['code'])) {
 <script>
 (function() {
     var message = " . json_encode($message) . ";
-    if (window.opener) {
-        window.opener.postMessage(message, '*');
+    function receiveMessage(e) {
+        // Responder solo a quien abrio esta ventana (el panel /admin) y con su origen exacto
+        window.opener.postMessage(message, e.origin);
+        window.removeEventListener('message', receiveMessage, false);
         window.close();
+    }
+    if (window.opener) {
+        window.addEventListener('message', receiveMessage, false);
+        // Handshake que exige Netlify/Decap CMS antes de aceptar el token
+        window.opener.postMessage('authorizing:github', '*');
     } else {
         document.body.innerHTML = '<p>Authentication complete. You can close this window.</p>';
     }
