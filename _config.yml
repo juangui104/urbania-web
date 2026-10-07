@@ -1,6 +1,6 @@
 title: Urbania
 description: Construcción y remodelación premium en Medellín
-url: "https://juangui104.github.io"
+url: "https://constructoraurbania.com"
 baseurl: ""
 
 permalink: pretty
@@ -24,20 +24,12 @@ defaults:
 
 plugins:
   - jekyll-feed
-  - jekyll-seo-tag
 
 exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
   - vendor
-  - index.html
-  - nosotros.html
-  - proyectos.html
-  - blog.html
-  - blog-articulo.html
-  - contacto.html
-  - casa-calera.html
-  - cantero.html
   - _blog
   - _config
+  - n8n

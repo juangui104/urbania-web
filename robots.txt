@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://urbania.com.co/sitemap.xml
+Sitemap: https://constructoraurbania.com/sitemap.xml

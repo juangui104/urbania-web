@@ -5,7 +5,7 @@ description: "Portafolio de Urbania — Casa Calera, Apartamento Cantero y más.
 keywords: "portafolio construcción Medellín, proyectos remodelación Colombia, obras terminadas Medellín"
 og_title: "Proyectos — Urbania Construcción y Remodelación · Medellín"
 og_description: "Portafolio de obras: construcción nueva, remodelación y acabados en Medellín. Cada proyecto, una declaración de carácter."
-og_image: "https://urbania-site.netlify.app/assets/og-proyectos.jpg"
+og_image: "/assets/images/proyectos/cantero-1.webp"
 permalink: /proyectos/
 ---
 

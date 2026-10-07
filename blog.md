@@ -5,7 +5,7 @@ description: "Blog de Urbania — construcción, remodelación y tendencias de d
 keywords: "blog construcción Medellín, remodelación apartamento, consejos obra, interiorismo Colombia"
 og_title: "Blog — Urbania Construcción y Remodelación · Medellín"
 og_description: "Construcción, diseño y tendencias para propietarios e inversores en Medellín. Consejos reales de quienes hacen obra todos los días."
-og_image: "https://urbania-site.netlify.app/assets/og-blog.jpg"
+og_image: "/assets/images/hero/hero-blog.webp"
 permalink: /blog/
 ---
 

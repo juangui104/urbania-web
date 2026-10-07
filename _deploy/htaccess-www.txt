@@ -1,0 +1,6 @@
+# Pegar al INICIO de public_html/.htaccess en Hostinger (antes de otras reglas).
+# Redirige www a la version sin www, directo a https, con una sola redireccion 301.
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.constructoraurbania\.com$ [NC]
+RewriteRule ^(.*)$ https://constructoraurbania.com/$1 [R=301,L]

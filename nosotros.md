@@ -5,7 +5,7 @@ description: "Conoce a Urbania — más de 10 años de experiencia en construcci
 keywords: "quiénes somos Urbania, empresa constructora Medellín, equipo construcción Colombia, experiencia obra Medellín, constructora confiable"
 og_title: "Nosotros — Urbania Construcción y Remodelación · Medellín"
 og_description: "Más de 10 años de experiencia en construcción y remodelación en Medellín. Conocé al equipo detrás de cada proyecto."
-og_image: "https://urbania-site.netlify.app/assets/og-nosotros.jpg"
+og_image: "/assets/images/hero/hero-nosotros.webp"
 permalink: /nosotros/
 ---
 

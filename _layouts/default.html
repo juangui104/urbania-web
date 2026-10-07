@@ -3,27 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  {% if page.description %}<meta name="description" content="{{ page.description }}" />{% endif %}
+  {% assign pg_title = page.title %}
+  {% unless pg_title contains "Urbania" %}{% assign pg_title = pg_title | append: " | Urbania" %}{% endunless %}
+  {% assign pg_desc = page.description | default: page.extracto | default: site.description %}
+  {% assign pg_url = page.url | replace: "index.html", "" | absolute_url %}
+  {% assign pg_img = page.og_image | default: page.imagen_principal | default: page.imagen | default: "/assets/images/proyectos/casa-calera-1.webp" %}
+  {% unless pg_img contains "://" %}{% assign pg_img = pg_img | absolute_url %}{% endunless %}
+  {% assign pg_og_title = page.og_title | default: pg_title %}
+  {% assign pg_og_desc = page.og_description | default: pg_desc %}
+
+  <title>{{ pg_title | escape }}</title>
+  <meta name="description" content="{{ pg_desc | strip_html | escape }}" />
   {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}" />{% endif %}
   <meta name="author" content="Urbania" />
-  {% if page.canonical %}<link rel="canonical" href="{{ page.canonical }}" />
-  {% else %}<link rel="canonical" href="{{ site.url }}{{ page.url }}" />{% endif %}
+  <link rel="canonical" href="{{ page.canonical | default: pg_url }}" />
 
   <!-- Open Graph -->
-  {% if page.og_title %}<meta property="og:title" content="{{ page.og_title }}" />{% endif %}
-  {% if page.og_description %}<meta property="og:description" content="{{ page.og_description }}" />{% endif %}
-  {% if page.og_image %}<meta property="og:image" content="{{ page.og_image }}" />{% endif %}
-  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  <meta property="og:site_name" content="Urbania" />
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:title" content="{{ pg_og_title | escape }}" />
+  <meta property="og:description" content="{{ pg_og_desc | strip_html | escape }}" />
+  <meta property="og:image" content="{{ pg_img }}" />
+  <meta property="og:url" content="{{ pg_url }}" />
   <meta property="og:type" content="{{ page.og_type | default: 'website' }}" />
-  {% if page.og_title %}
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{{ page.og_title }}" />
-  {% if page.og_description %}<meta name="twitter:description" content="{{ page.og_description }}" />{% endif %}
-  {% endif %}
-
-  <title>{{ page.title }} — Urbania</title>
-
-  {% seo %}
+  <meta name="twitter:title" content="{{ pg_og_title | escape }}" />
+  <meta name="twitter:description" content="{{ pg_og_desc | strip_html | escape }}" />
+  <meta name="twitter:image" content="{{ pg_img }}" />
 
   <link rel="stylesheet" href="{{ "/css/style.css" | relative_url }}" />
   <link rel="stylesheet" href="{{ "/css/animations.css" | relative_url }}" />

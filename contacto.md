@@ -5,7 +5,7 @@ description: "Contactá a Urbania — construcción y remodelación en Medellín
 keywords: "contacto constructora Medellín, cotización remodelación, presupuesto obra Medellín, Urbania contacto"
 og_title: "Contacto — Cotización gratuita · Urbania Medellín"
 og_description: "Hablemos de tu proyecto. Contanos qué tenés en mente y te respondemos en menos de 24 horas."
-og_image: "https://urbania-site.netlify.app/assets/og-contacto.jpg"
+og_image: "/assets/images/hero/hero-contacto.webp"
 supabase: true
 permalink: /contacto/
 ---
@@ -94,8 +94,7 @@ permalink: /contacto/
         <h2 class="contacto__title" style="margin-bottom:0.5rem;">Tus datos de contacto</h2>
         <p class="contacto__subtitle">Te respondemos en menos de 24 horas</p>
 
-        <form name="contacto" data-netlify="true" id="contacto-form" novalidate>
-          <input type="hidden" name="form-name" value="contacto">
+        <form name="contacto" id="contacto-form" novalidate>
           <input type="hidden" name="tipo-proyecto" id="tipo-hidden">
           <div class="campo">
             <label for="nombre">Nombre completo *</label>
@@ -105,7 +104,7 @@ permalink: /contacto/
             <label for="telefono">Teléfono *</label>
             <div class="tel-wrap">
               <span class="prefijo">🇨🇴 +57</span>
-              <input type="tel" id="telefono" name="telefono" placeholder="320 624 8693" required autocomplete="tel">
+              <input type="tel" id="telefono" name="telefono" placeholder="300 123 4567" required autocomplete="tel">
             </div>
           </div>
           <div class="campo">

@@ -3,10 +3,9 @@ layout: page
 title: "Urbania — Construcción y Remodelación Premium · Medellín"
 description: "Urbania — Construcción y Remodelación Premium en Medellín. Transformamos espacios con diseño, tecnología y calidad de acabado superior."
 keywords: "construcción Medellín, remodelación Medellín, constructora premium, obra nueva Medellín, acabados interiorismo Colombia, Urbania"
-canonical: "https://urbania-site.netlify.app/"
 og_title: "Urbania — Construcción y Remodelación Premium · Medellín"
 og_description: "Construimos lo que otros solo imaginan. Construcción nueva, remodelación y acabados de alto estándar en Medellín, Colombia."
-og_image: "https://urbania-site.netlify.app/assets/og-home.jpg"
+og_image: "/assets/images/proyectos/casa-calera-1.webp"
 permalink: /
 ---
 
@@ -169,30 +168,76 @@ permalink: /
         <article class="process-step reveal-up">
           <span class="process-step__num">01</span>
           <div class="process-step__divider"></div>
-          <h3 class="process-step__title">Reunión inicial</h3>
+          <h3 class="process-step__title">Reunión</h3>
           <p class="process-step__desc">Nos contás qué querés hacer. Sin compromisos, sin tecnicismos. Solo escuchamos.</p>
         </article>
         <article class="process-step reveal-up" style="transition-delay:0.2s">
           <span class="process-step__num">02</span>
           <div class="process-step__divider"></div>
-          <h3 class="process-step__title">Propuesta y presupuesto</h3>
-          <p class="process-step__desc">En menos de 72 horas tenés una propuesta clara con alcance, materiales y precio real.</p>
+          <h3 class="process-step__title">Cotización</h3>
+          <p class="process-step__desc">Te entregamos una cotización clara con alcance, materiales y precio real.</p>
         </article>
         <article class="process-step reveal-up" style="transition-delay:0.4s">
           <span class="process-step__num">03</span>
           <div class="process-step__divider"></div>
-          <h3 class="process-step__title">Ejecución con acompañamiento</h3>
-          <p class="process-step__desc">Hacemos el trabajo pesado. Vos recibís reportes visuales del avance sin tener que estar en obra.</p>
+          <h3 class="process-step__title">Diseños y render</h3>
+          <p class="process-step__desc">Si tu proyecto lo requiere, desarrollamos los diseños y renders para que veas el resultado antes de construir.</p>
         </article>
-        <article class="process-step reveal-up" style="transition-delay:0.6s">
+        <article class="process-step reveal-up">
           <span class="process-step__num">04</span>
           <div class="process-step__divider"></div>
-          <h3 class="process-step__title">Entrega y garantía</h3>
-          <p class="process-step__desc">Recibís tu espacio terminado con garantía escrita sobre los trabajos realizados.</p>
+          <h3 class="process-step__title">Contrato</h3>
+          <p class="process-step__desc">Formalizamos por escrito el alcance, las condiciones y las responsabilidades de cada parte.</p>
+        </article>
+        <article class="process-step reveal-up" style="transition-delay:0.2s">
+          <span class="process-step__num">05</span>
+          <div class="process-step__divider"></div>
+          <h3 class="process-step__title">Ejecución</h3>
+          <p class="process-step__desc">Hacemos el trabajo pesado. Vos recibís reportes visuales del avance sin tener que estar en obra.</p>
+        </article>
+        <article class="process-step reveal-up" style="transition-delay:0.4s">
+          <span class="process-step__num">06</span>
+          <div class="process-step__divider"></div>
+          <h3 class="process-step__title">Entrega</h3>
+          <p class="process-step__desc">Recibís tu espacio terminado, listo para disfrutar.</p>
         </article>
       </div>
     </div>
   </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="preguntas-frecuentes" aria-labelledby="faq-titulo">
+    <div class="container">
+      <div class="faq-section__header">
+        <span class="gold-line gold-line-reveal"></span>
+        <span class="section-label reveal-up">Preguntas frecuentes</span>
+        <h2 id="faq-titulo" class="reveal-up">Antes de empezar, esto es lo que más nos preguntan</h2>
+      </div>
+      <div class="faq-list">
+        {% for item in site.data.faq %}
+        <details class="faq-item reveal-up">
+          <summary class="faq-item__q">{{ item.q }}</summary>
+          <p class="faq-item__a">{{ item.a }}</p>
+        </details>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {% for item in site.data.faq %}{
+        "@type": "Question",
+        "name": {{ item.q | jsonify }},
+        "acceptedAnswer": { "@type": "Answer", "text": {{ item.a | jsonify }} }
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  }
+  </script>
 
   <!-- CTA STRIP -->
   <section class="cta-strip" aria-label="Llamado a la acción">
@@ -218,8 +263,15 @@ permalink: /
     "@type": "LocalBusiness",
     "name": "Urbania",
     "description": "Empresa de construcción y remodelación en Medellín, Colombia",
-    "@id": "https://urbania-site.netlify.app",
-    "url": "https://urbania-site.netlify.app",
+    "@id": "{{ site.url }}/#organization",
+    "url": "{{ site.url }}/",
+    "image": "{{ "/assets/images/proyectos/casa-calera-1.webp" | absolute_url }}",
+    "logo": "{{ "/assets/logo/URBANIA CON FONDO COLOR 1PNG.png" | absolute_url }}",
+    "sameAs": [
+      "{{ site.data.configuracion.instagram }}",
+      "{{ site.data.configuracion.facebook }}"
+    ],
+    "areaServed": {"@type": "City", "name": "Medellín"},
     "telephone": "{{ site.data.configuracion.telefono_raw }}",
     "email": "{{ site.data.configuracion.email }}",
     "address": {
