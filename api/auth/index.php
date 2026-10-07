@@ -1,6 +1,14 @@
 <?php
 $client_id = 'Ov23li1JqVAcBgxugZwa';
-$client_secret = '5d5a519d33806b88f91e4adff38bc547e3c62baa';
+
+// El secreto NO va en el repositorio: vive en secret.php, solo en el servidor
+// (ver secret.example.php). Si falta, el login del CMS se detiene.
+$secret_file = __DIR__ . '/secret.php';
+$client_secret = file_exists($secret_file) ? require $secret_file : null;
+if (!is_string($client_secret) || $client_secret === '') {
+    http_response_code(500);
+    exit('Configuracion de autenticacion incompleta.');
+}
 
 if (isset($_GET['code'])) {
     $code = $_GET['code'];
